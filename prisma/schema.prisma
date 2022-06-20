@@ -1,0 +1,51 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["extendedIndexes"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Core
+model User {
+  id String @id @db.Uuid
+
+  @@map("users")
+}
+
+// Coords
+model Coord {
+  id      Int       @id @default(autoincrement())
+  x       Int
+  y       Int
+  z       Int?
+  public  Boolean
+  list_id Int       @unique
+  list    CoordList @relation(fields: [list_id], references: [id])
+
+  @@map("coords_coords")
+}
+
+model CoordList {
+  id      Int          @id @default(autoincrement())
+  name    String
+  public  Boolean      @default(false)
+  list_id Int?
+  list    CoordList?   @relation("list", fields: [list_id], references: [id])
+  coords  Coord[]
+  lists   CoordList[]  @relation("list")
+  shares  CoordShare[]
+
+  @@map("coords_coord_lists")
+}
+
+model CoordShare {
+  id      Int       @id @default(autoincrement())
+  user_id String    @db.Uuid
+  list_id Int
+  list    CoordList @relation(fields: [list_id], references: [id])
+
+  @@map("coord_shares")
+}
