@@ -10,7 +10,9 @@ datasource db {
 
 // Core
 model User {
-  id String @id @db.Uuid
+  id     String  @id @db.Uuid
+  name   String  @unique
+  avatar String?
 
   @@map("users")
 }
@@ -47,5 +49,5 @@ model CoordShare {
   list_id Int
   list    CoordList @relation(fields: [list_id], references: [id])
 
-  @@map("coord_shares")
+  @@map("coords_shares")
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   createStyles,
   Menu,
@@ -13,6 +13,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { UserMenu } from "./UserMenu";
 import { useAppContext } from "../../context/AppContext";
+import { AuthDrawer } from "../Auth/AuthDrawer";
 
 export const HEADER_HEIGHT = 60;
 
@@ -78,6 +79,8 @@ export function RootHeader({ links, opened, toggleOpened }: RootHeaderProps) {
   const { classes } = useStyles();
   const { isSignedIn } = useAppContext();
   const router = useRouter();
+  const [isAuthDrawerOpened, setIsAuthDrawerOpened] = useState(false);
+  const [authType, setAuthType] = useState<"login" | "register">("login");
   const items = links.map((link) => {
     const menuItems = link.links?.map((item) => (
       <Menu.Item onClick={() => router.push(item.link)} key={item.link}>
@@ -121,45 +124,60 @@ export function RootHeader({ links, opened, toggleOpened }: RootHeaderProps) {
   });
 
   return (
-    <MantineHeader height={HEADER_HEIGHT} sx={{ borderBottom: 0 }}>
-      <Group className={classes.inner} position="apart" px="md">
-        <Group>
-          <Burger
-            opened={opened}
-            onClick={() => toggleOpened()}
-            className={classes.burger}
-            size="sm"
-          />
-          <Link href="/">
-            <a className={classes.iconAnchor}>
-              <IconAbacus />
-            </a>
-          </Link>
-        </Group>
-        <Group spacing={5} className={classes.links}>
-          {items}
-        </Group>
-        <Group>
-          {isSignedIn ? (
-            <UserMenu />
-          ) : (
-            <Group>
-              <Link href="/login">
-                <Button variant="outline">Login</Button>
-              </Link>
-              <Link href="/register">
+    <>
+      <MantineHeader height={HEADER_HEIGHT} sx={{ borderBottom: 0 }}>
+        <Group className={classes.inner} position="apart" px="md">
+          <Group>
+            <Burger
+              opened={opened}
+              onClick={() => toggleOpened()}
+              className={classes.burger}
+              size="sm"
+            />
+            <Link href="/">
+              <a className={classes.iconAnchor}>
+                <IconAbacus />
+              </a>
+            </Link>
+          </Group>
+          <Group spacing={5} className={classes.links}>
+            {items}
+          </Group>
+          <Group>
+            {isSignedIn ? (
+              <UserMenu />
+            ) : (
+              <Group>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setIsAuthDrawerOpened(true);
+                    setAuthType("login");
+                  }}
+                >
+                  Login
+                </Button>
                 <Button
                   variant="gradient"
                   gradient={{ from: "indigo", to: "grape" }}
                   component="a"
+                  onClick={() => {
+                    setAuthType("register");
+                    setIsAuthDrawerOpened(true);
+                  }}
                 >
                   Register
                 </Button>
-              </Link>
-            </Group>
-          )}
+              </Group>
+            )}
+          </Group>
         </Group>
-      </Group>
-    </MantineHeader>
+      </MantineHeader>
+      <AuthDrawer
+        opened={isAuthDrawerOpened}
+        setOpened={setIsAuthDrawerOpened}
+        initialType={authType}
+      />
+    </>
   );
 }

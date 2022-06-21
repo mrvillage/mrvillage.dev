@@ -1,7 +1,6 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 
-const Index: NextPage = () => {
+export default function Page() {
   return (
     <>
       <Head>
@@ -12,6 +11,4 @@ const Index: NextPage = () => {
       Index
     </>
   );
-};
-
-export default Index;
+}

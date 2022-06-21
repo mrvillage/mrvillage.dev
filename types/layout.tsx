@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import type { NextPage } from "next";
 
 export type JSXElementWithLayout = JSX.Element & {
   getLayout?: (page: React.ReactElement) => React.ReactNode;
