@@ -3,7 +3,7 @@ export const footerLinks: {
   links: { link: string; label: string }[];
 }[] = [
   {
-    title: "Products",
+    title: "Apps",
     links: [
       {
         link: "/coords",
@@ -16,6 +16,10 @@ export const footerLinks: {
       {
         link: "/todo",
         label: "To Do",
+      },
+      {
+        link: "/dnd",
+        label: "D&D",
       },
     ],
   },

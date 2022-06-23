@@ -46,6 +46,10 @@ export const mainLinks: Link[] = [
         label: "To Do",
         link: "/todo",
       },
+      {
+        label: "D&D",
+        link: "/dnd",
+      },
     ],
   },
 ];
