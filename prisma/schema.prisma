@@ -39,7 +39,7 @@ model CoordList {
   public   Boolean      @default(false)
   list_id  Int?
   list     CoordList?   @relation("list", fields: [list_id], references: [id])
-  owner_id String
+  owner_id String       @db.Uuid
   owner    User         @relation(fields: [owner_id], references: [id])
   coords   Coord[]
   lists    CoordList[]  @relation("list")
@@ -62,7 +62,7 @@ model BlogPost {
   title      String
   slug       String        @unique
   content    String
-  author_id  String
+  author_id  String        @db.Uuid
   author     User          @relation(fields: [author_id], references: [id])
   tags       String[]
   created_at DateTime      @default(now())
@@ -76,7 +76,7 @@ model BlogPost {
 model BlogComment {
   id         Int       @id @default(autoincrement())
   content    String
-  author_id  String
+  author_id  String    @db.Uuid
   author     User      @relation(fields: [author_id], references: [id])
   post_id    Int
   post       BlogPost  @relation(fields: [post_id], references: [id])

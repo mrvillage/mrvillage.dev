@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   TextInput,
   PasswordInput,
@@ -15,7 +15,8 @@ import { showErrorNotification } from "../../utils/notifications";
 import { useRouter } from "next/router";
 import { IconLock, IconMail } from "@tabler/icons";
 import { useDebouncedValue } from "@mantine/hooks";
-import { isNameTaken } from "../../query/user";
+import { isNameTaken } from "../../query/client/user";
+import { useFormValidation } from "../../hooks/form";
 
 interface AuthFormProps {
   type: "login" | "register";
@@ -55,7 +56,8 @@ export function AuthForm({ type, toggle, setOpened }: AuthFormProps) {
           : null,
     },
   });
-  useDebouncedValue(form.values.name, 500);
+  useFormValidation(form);
+  const [name] = useDebouncedValue(form.values.name, 500);
   const nameTaken = (taken: boolean) => {
     if (taken) {
       form.setFieldError("name", "Name is taken");
@@ -64,30 +66,32 @@ export function AuthForm({ type, toggle, setOpened }: AuthFormProps) {
     }
     return taken;
   };
+  const checkNameTaken = async (name: string) => {
+    const { data, error } = await isNameTaken(name);
+    if (error) {
+      return true;
+    }
+    return data.taken;
+  };
   useEffect(() => {
     if (form.values.name) {
-      isNameTaken(form.values.name).then((taken) => {
+      checkNameTaken(form.values.name).then((taken) => {
         nameTaken(taken);
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [form.values.name]);
-
-  const firstValidation = useRef(true);
-  useEffect(() => {
-    if (!firstValidation.current) {
-      form.validate();
-    } else {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      firstValidation.current = false;
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [form.values]);
+  }, [name]);
 
   const handleSubmit = async () => {
-    console.log("click");
     setLoading(true);
-    if (type === "register" && nameTaken(await isNameTaken(form.values.name))) {
+    if (
+      type === "register" &&
+      nameTaken(await checkNameTaken(form.values.name))
+    ) {
+      return;
+    }
+    const { hasErrors } = form.validate();
+    if (hasErrors) {
       return;
     }
     const data = {

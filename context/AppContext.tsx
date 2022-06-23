@@ -1,9 +1,12 @@
 import { createContext, useContext, useState } from "react";
-import { createClient, SupabaseClient } from "@supabase/supabase-js";
+import { SupabaseClient } from "@supabase/supabase-js";
+import { supabase } from "../utils/supabase";
+import { TokenClaims } from "../types/token";
 
 interface AppContextInterface {
   supabase: SupabaseClient;
   isSignedIn: boolean;
+  claims: TokenClaims;
 }
 
 // @ts-ignore
@@ -14,13 +17,10 @@ interface AppContextProviderProps {
 }
 
 const AppContextProvider = ({ children }: AppContextProviderProps) => {
-  const supabase = createClient(
-    // @ts-ignore
-    process.env.NEXT_PUBLIC_SUPABASE_URL,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-  );
   const [isSignedIn, setIsSignedIn] = useState<boolean>(false);
-  supabase.auth.onAuthStateChange((event) => {
+  const [claims, setClaims] = useState<TokenClaims>({});
+  supabase.auth.onAuthStateChange((event, session) => {
+    setClaims(session?.user?.user_metadata.claims || {});
     if (event === "SIGNED_IN") {
       setIsSignedIn(true);
     } else if (event === "SIGNED_OUT" || event == "USER_DELETED") {
@@ -28,7 +28,7 @@ const AppContextProvider = ({ children }: AppContextProviderProps) => {
     }
   });
   return (
-    <AppContext.Provider value={{ supabase, isSignedIn }}>
+    <AppContext.Provider value={{ supabase, isSignedIn, claims }}>
       {children}
     </AppContext.Provider>
   );

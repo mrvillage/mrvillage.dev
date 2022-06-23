@@ -4,6 +4,10 @@ export function resOk(res: NextApiResponse, data: any) {
   res.status(200).json(data);
 }
 
+export function resCreated(res: NextApiResponse, data: any) {
+  res.status(201).json(data);
+}
+
 export function resNoContent(res: NextApiResponse) {
   res.status(204).json({});
 }

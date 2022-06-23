@@ -25,9 +25,12 @@ export async function handleJWTAuth(
   if (auth && auth.length) {
     const token = auth[1];
     try {
-      const { payload } = await verifyJWT(token);
-      // @ts-ignore
-      return { id: payload.sub, email: payload.email };
+      const payload: any = await verifyJWT(token);
+      return {
+        id: payload.sub,
+        email: payload.email,
+        claims: payload.user_metadata.claims,
+      };
     } catch (e) {
       resUnauthorized(res);
     }
