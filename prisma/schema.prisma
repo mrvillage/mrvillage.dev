@@ -10,10 +10,13 @@ datasource db {
 
 // Core
 model User {
-  id     String  @id @db.Uuid
-  name   String  @unique
-  avatar String?
+  id          String      @id @db.Uuid
+  name        String      @unique
+  avatar      String?
+  blog_posts  BlogPost[]
+  coord_lists CoordList[]
 
+  BlogComment BlogComment[]
   @@map("users")
 }
 
@@ -31,14 +34,16 @@ model Coord {
 }
 
 model CoordList {
-  id      Int          @id @default(autoincrement())
-  name    String
-  public  Boolean      @default(false)
-  list_id Int?
-  list    CoordList?   @relation("list", fields: [list_id], references: [id])
-  coords  Coord[]
-  lists   CoordList[]  @relation("list")
-  shares  CoordShare[]
+  id       Int          @id @default(autoincrement())
+  name     String
+  public   Boolean      @default(false)
+  list_id  Int?
+  list     CoordList?   @relation("list", fields: [list_id], references: [id])
+  owner_id String
+  owner    User         @relation(fields: [owner_id], references: [id])
+  coords   Coord[]
+  lists    CoordList[]  @relation("list")
+  shares   CoordShare[]
 
   @@map("coords_coord_lists")
 }
@@ -50,4 +55,33 @@ model CoordShare {
   list    CoordList @relation(fields: [list_id], references: [id])
 
   @@map("coords_shares")
+}
+
+model BlogPost {
+  id         Int           @id @default(autoincrement())
+  title      String
+  slug       String        @unique
+  content    String
+  author_id  String
+  author     User          @relation(fields: [author_id], references: [id])
+  tags       String[]
+  created_at DateTime      @default(now())
+  updated_at DateTime?
+  comments   BlogComment[]
+  published  Boolean       @default(false)
+
+  @@map("blog_posts")
+}
+
+model BlogComment {
+  id         Int       @id @default(autoincrement())
+  content    String
+  author_id  String
+  author     User      @relation(fields: [author_id], references: [id])
+  post_id    Int
+  post       BlogPost  @relation(fields: [post_id], references: [id])
+  created_at DateTime  @default(now())
+  updated_at DateTime?
+
+  @@map("blog_comments")
 }
