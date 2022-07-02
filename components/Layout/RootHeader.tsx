@@ -73,9 +73,15 @@ interface RootHeaderProps {
   }[];
   opened: boolean;
   toggleOpened: (value?: boolean) => void;
+  inheritBackgroundColor?: boolean;
 }
 
-export function RootHeader({ links, opened, toggleOpened }: RootHeaderProps) {
+export function RootHeader({
+  links,
+  opened,
+  toggleOpened,
+  inheritBackgroundColor = false,
+}: RootHeaderProps) {
   const { classes } = useStyles();
   const { isSignedIn } = useAppContext();
   const router = useRouter();
@@ -125,7 +131,13 @@ export function RootHeader({ links, opened, toggleOpened }: RootHeaderProps) {
 
   return (
     <>
-      <MantineHeader height={HEADER_HEIGHT} sx={{ borderBottom: 0 }}>
+      <MantineHeader
+        height={HEADER_HEIGHT}
+        sx={{
+          borderBottom: 0,
+          backgroundColor: inheritBackgroundColor ? "inherit" : undefined,
+        }}
+      >
         <Group className={classes.inner} position="apart" px="md">
           <Group>
             <Burger
@@ -147,9 +159,10 @@ export function RootHeader({ links, opened, toggleOpened }: RootHeaderProps) {
             {isSignedIn ? (
               <UserMenu />
             ) : (
-              <Group>
+              <Group sx={{ opacity: inheritBackgroundColor ? 1 : undefined }}>
                 <Button
-                  variant="outline"
+                  variant={inheritBackgroundColor ? "gradient" : "outline"}
+                  gradient={{ from: "grape", to: "indigo" }}
                   onClick={() => {
                     setIsAuthDrawerOpened(true);
                     setAuthType("login");
@@ -158,7 +171,7 @@ export function RootHeader({ links, opened, toggleOpened }: RootHeaderProps) {
                   Login
                 </Button>
                 <Button
-                  variant="gradient"
+                  variant={inheritBackgroundColor ? "gradient" : "gradient"}
                   gradient={{ from: "indigo", to: "grape" }}
                   component="a"
                   onClick={() => {

@@ -1,4 +1,3 @@
-import { AppShell } from "@mantine/core";
 import { RootHeader } from "../components/Layout/RootHeader";
 import { mainLinks } from "../components/Layout/mainLinks";
 import { useDisclosure } from "@mantine/hooks";
@@ -10,35 +9,42 @@ import { layoutGetLayout } from "../utils/layout";
 interface RootProps {
   children: React.ReactNode;
   showFooter?: boolean;
+  headerInheritBackgroundColor?: boolean;
+  footerInheritBackgroundColor?: boolean;
+  showFooterBody?: boolean;
 }
 
 export default function Root({
   children,
   showFooter,
+  headerInheritBackgroundColor,
+  footerInheritBackgroundColor,
+  showFooterBody,
 }: RootProps): JSXElementWithLayout {
   const [navbarOpened, navbarOpenedHandlers] = useDisclosure(false);
   return (
-    <AppShell
-      padding={0}
-      fixed
-      navbarOffsetBreakpoint="sm"
-      navbar={
-        <RootHeaderNavbar
-          links={mainLinks}
-          opened={navbarOpened}
-          toggleOpened={navbarOpenedHandlers.toggle}
-        />
-      }
-      header={
-        <RootHeader
-          links={mainLinks}
-          opened={navbarOpened}
-          toggleOpened={navbarOpenedHandlers.toggle}
-        />
-      }
-    >
-      <PageScrollArea showFooter={showFooter}>{children}</PageScrollArea>
-    </AppShell>
+    <>
+      <RootHeader
+        links={mainLinks}
+        opened={navbarOpened}
+        toggleOpened={navbarOpenedHandlers.toggle}
+        inheritBackgroundColor={headerInheritBackgroundColor}
+      />
+      <RootHeaderNavbar
+        links={mainLinks}
+        opened={navbarOpened}
+        toggleOpened={navbarOpenedHandlers.toggle}
+      />
+      <main>
+        <PageScrollArea
+          showFooter={showFooter}
+          footerInheritBackgroundColor={footerInheritBackgroundColor}
+          showFooterBody={showFooterBody}
+        >
+          {children}
+        </PageScrollArea>
+      </main>
+    </>
   );
 }
 

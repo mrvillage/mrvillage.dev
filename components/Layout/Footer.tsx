@@ -109,14 +109,20 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-interface FooterLinksProps {
+interface FooterProps {
   links: {
     title: string;
     links: { label: string; link: string }[];
   }[];
+  inheritBackgroundColor?: boolean;
+  showFooterBody?: boolean;
 }
 
-export default function Footer({ links }: FooterLinksProps) {
+export default function Footer({
+  links,
+  inheritBackgroundColor = false,
+  showFooterBody = true,
+}: FooterProps) {
   const { classes } = useStyles();
   const groups = links.map((group) => {
     const links = group.links.map((link) => (
@@ -135,17 +141,28 @@ export default function Footer({ links }: FooterLinksProps) {
     );
   });
   return (
-    <footer className={classes.footer}>
-      <Container className={classes.inner}>
-        <div className={classes.logo}>
-          {/* <Logo /> */}
-          <Text size="xs" color="dimmed" className={classes.description}>
-            Organize education like never before
-          </Text>
-        </div>
-        <div className={classes.groups}>{groups}</div>
-      </Container>
-      <Container className={classes.afterFooter}>
+    <footer
+      className={classes.footer}
+      style={{
+        backgroundColor: inheritBackgroundColor ? "inherit" : undefined,
+        borderTop: inheritBackgroundColor ? "0px" : undefined,
+      }}
+    >
+      {showFooterBody && (
+        <Container className={classes.inner}>
+          <div className={classes.logo}>
+            {/* <Logo /> */}
+            <Text size="xs" color="dimmed" className={classes.description}>
+              Organize education like never before
+            </Text>
+          </div>
+          <div className={classes.groups}>{groups}</div>
+        </Container>
+      )}
+      <Container
+        className={classes.afterFooter}
+        style={{ borderTop: inheritBackgroundColor ? "0px" : undefined }}
+      >
         <Text color="dimmed" size="sm">
           © 2022 mrvillage. All rights reserved.
         </Text>

@@ -6,11 +6,15 @@ import { footerLinks } from "./footerLinks";
 interface PageScrollAreaProps {
   children: React.ReactNode;
   showFooter?: boolean;
+  footerInheritBackgroundColor?: boolean;
+  showFooterBody?: boolean;
 }
 
 export default function PageScrollArea({
   children,
   showFooter = true,
+  footerInheritBackgroundColor,
+  showFooterBody,
 }: PageScrollAreaProps) {
   return (
     <Box
@@ -40,7 +44,13 @@ export default function PageScrollArea({
           <Box p="md" sx={{ flexGrow: 1 }}>
             {children}
           </Box>
-          {showFooter && <Footer links={footerLinks} />}
+          {showFooter && (
+            <Footer
+              links={footerLinks}
+              inheritBackgroundColor={footerInheritBackgroundColor}
+              showFooterBody={showFooterBody}
+            />
+          )}
         </Box>
       </ScrollArea>
     </Box>
