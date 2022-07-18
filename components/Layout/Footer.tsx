@@ -5,7 +5,7 @@ import {
   ActionIcon,
   Group,
 } from "@mantine/core";
-import { IconBrandTwitter } from "@tabler/icons";
+import { IconBrandGithub } from "@tabler/icons";
 import Link from "next/link";
 
 const useStyles = createStyles((theme) => ({
@@ -153,7 +153,7 @@ export default function Footer({
           <div className={classes.logo}>
             {/* <Logo /> */}
             <Text size="xs" color="dimmed" className={classes.description}>
-              Organize education like never before
+              Something something footer text
             </Text>
           </div>
           <div className={classes.groups}>{groups}</div>
@@ -168,8 +168,13 @@ export default function Footer({
         </Text>
 
         <Group spacing={0} className={classes.social} position="right" noWrap>
-          <ActionIcon size="lg">
-            <IconBrandTwitter size={18} />
+          <ActionIcon
+            size="lg"
+            onClick={() =>
+              (window.location.href = "https://github.com/mrvillage")
+            }
+          >
+            <IconBrandGithub size={18} />
           </ActionIcon>
         </Group>
       </Container>
