@@ -41,9 +41,11 @@ export default function PageScrollArea({
             height: "100%",
           }}
         >
-          <Box p="md" sx={{ flexGrow: 1 }}>
-            {children}
-          </Box>
+          <ScrollArea sx={{ width: "100vw" }}>
+            <Box p="md" sx={{ flexGrow: 1 }}>
+              {children}
+            </Box>
+          </ScrollArea>
           {showFooter && (
             <Footer
               links={footerLinks}
