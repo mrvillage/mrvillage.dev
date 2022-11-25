@@ -40,6 +40,18 @@ const useStyles = createStyles((theme) => ({
       marginTop: 40,
     },
   },
+
+  biggerGroup: {
+    [theme.fn.smallerThan("sm")]: {
+      display: "none",
+    },
+  },
+
+  smallerGroup: {
+    [theme.fn.largerThan("sm")]: {
+      display: "none",
+    },
+  },
 }));
 
 interface MainLink {
@@ -49,7 +61,7 @@ interface MainLink {
 }
 
 export default function Index() {
-  const { classes, theme } = useStyles();
+  const { classes, cx, theme } = useStyles();
   const [shown, setShown] = useState(false);
   const [pointerEvents, setPointerEvents] = useState<"none" | undefined>(
     "none"
@@ -170,8 +182,16 @@ export default function Index() {
       <Group
         align="center"
         position="center"
-        className={classes.group}
+        className={cx(classes.group, classes.biggerGroup)}
         spacing={40}
+      >
+        {icons}
+      </Group>
+      <Group
+        align="center"
+        position="center"
+        className={cx(classes.group, classes.smallerGroup)}
+        spacing={20}
       >
         {icons}
       </Group>
