@@ -21,7 +21,7 @@ export const meta: MetaFunction = () => ({
   charset: "utf-8",
   title: "mrvillage",
   viewport: "width=device-width,initial-scale=1",
-  description: "The staff application portal for Politics and War.",
+  description: "mrvillage.dev",
 });
 
 export const links: LinksFunction = () => {
