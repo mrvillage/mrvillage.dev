@@ -7,7 +7,10 @@
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "next/core-web-vitals"
+    "prettier",
+    "plugin:prettier/recommended",
+    "@remix-run/eslint-config",
+    "@remix-run/eslint-config/node"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -24,6 +27,9 @@
     "react/react-in-jsx-scope": "off",
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/ban-ts-comment": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "prettier/prettier": "warn",
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off"
   }
 }
