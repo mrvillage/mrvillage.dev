@@ -1,7 +1,7 @@
 import { Record } from "pocketbase";
 import { Admin } from "pocketbase";
 import PocketBase, { BaseAuthStore } from "pocketbase";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
 // TAKEN FROM Pocketbase's source code,
 // https://github.com/pocketbase/js-sdk/blob/7956bfe992cea931a120f039e0d50c479e910e84/src/stores/utils/cookie.ts#L25
@@ -195,7 +195,7 @@ export const ClientProvider = ({
   children: React.ReactNode;
   loaderCookie: string;
 }) => {
-  const client = createClient(loaderCookie);
+  const client = useMemo(() => createClient(loaderCookie), [loaderCookie]);
   return (
     <ClientContext.Provider value={client}>{children}</ClientContext.Provider>
   );
