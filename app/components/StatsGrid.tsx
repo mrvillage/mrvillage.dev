@@ -43,7 +43,7 @@ const useStyles = createStyles((theme) => ({
 export function StatsCard({ title, Icon, value, color }: StatData) {
   const { classes, theme } = useStyles();
   return (
-    <Paper withBorder p="md" radius="md" className={classes.card}>
+    <Paper p="md" radius="md" className={classes.card}>
       <Group position="apart">
         <Text color="dimmed" className={classes.title}>
           {title}

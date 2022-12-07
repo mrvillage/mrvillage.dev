@@ -77,7 +77,7 @@ export default function ActionsCard({ actions }: { actions: ActionData[] }) {
     <ActionItem key={action.title} {...action} />
   ));
   return (
-    <Card withBorder radius="md" className={classes.card}>
+    <Card radius="md" className={classes.card}>
       <Group position="apart">
         <Text color="dimmed" className={classes.title}>
           Actions
