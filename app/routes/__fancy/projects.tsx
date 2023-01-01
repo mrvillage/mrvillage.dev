@@ -1,6 +1,5 @@
 import { Grid } from "@mantine/core";
 import {
-  IconApi,
   IconApiApp,
   IconBow,
   IconBrowser,
