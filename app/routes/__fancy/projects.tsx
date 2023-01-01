@@ -1,5 +1,7 @@
 import { Grid } from "@mantine/core";
 import {
+  IconApi,
+  IconApiApp,
   IconBow,
   IconBrowser,
   IconForbid,
@@ -11,6 +13,7 @@ import {
   IconTimelineEventExclamation,
   IconToolsKitchen,
   IconToolsKitchen2,
+  IconWorld,
 } from "@tabler/icons";
 import type { ProjectCardData } from "~/components/ProjectCard";
 import ProjectCard from "~/components/ProjectCard";
@@ -35,9 +38,29 @@ const projects: ProjectCardData[] = [
       "A Discord bot for Politics and War that provides a wide variety of tools for helping players manage their nations and alliances. The bot is currently being rewritten as a community project.",
     status: "in progress",
     technologies: ["rust", "python", "discord api"],
-    github: "politicsandwar-community/rift",
+    github: ["politicsandwar-community/rift", "mrvillage/rift"],
     website: "rift.mrvillage.dev",
     docs: "rift.mrvillage.dev/docs",
+  },
+  {
+    name: "Politics and War",
+    Icon: IconWorld,
+    description:
+      "A browser-based online game where players create and run their nations and group together to form alliances. I am currently employed as a developer for the game",
+    status: "participating",
+    technologies: ["php", "javascript", "css", "html", "mysql"],
+    website: "politicsandwar.com",
+    closed_source: true,
+  },
+  {
+    name: "Politics and War API",
+    Icon: IconApiApp,
+    description:
+      "A GraphQL API for interacting with Politics and War. The API is currently being rewritten in Rust.",
+    status: "participating",
+    technologies: ["php", "graphql", "mysql", "rust"],
+    website: "api.politicsandwar.com/graphql-playground",
+    closed_source: true,
   },
   {
     name: "pnwkit",
@@ -47,6 +70,7 @@ const projects: ProjectCardData[] = [
     status: "backburner",
     technologies: ["rust", "python", "typescript"],
     github: "mrvillage/pnwkit",
+    crate: "pnwkit-rs",
   },
   {
     name: "pnwkit-py",
