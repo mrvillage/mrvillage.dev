@@ -1,14 +1,9 @@
-import type {
-  MantineGradient,
-  MantineTheme,
-  DefaultMantineColor,
-} from "@mantine/core";
-import { Stack } from "@mantine/core";
-import { Anchor } from "@mantine/core";
-import { Grid } from "@mantine/core";
-import { Paper } from "@mantine/core";
-import { useMantineTheme } from "@mantine/core";
 import {
+  Paper,
+  Grid,
+  Anchor,
+  Stack,
+  useMantineTheme,
   Badge,
   Card,
   createStyles,
@@ -17,9 +12,15 @@ import {
   ThemeIcon,
   Tooltip,
 } from "@mantine/core";
+import type {
+  MantineGradient,
+  MantineTheme,
+  DefaultMantineColor,
+} from "@mantine/core";
 import type { TablerIcon } from "@tabler/icons";
-import { IconBrandGraphql } from "@tabler/icons";
 import {
+  IconBrandGraphql,
+  IconBrandFirebase,
   IconBrandCss3,
   IconBrandHtml5,
   IconBrandStripe,
@@ -545,6 +546,12 @@ const TECHNOLOGY_BADGES = typedBadges({
     text: "GraphQL",
     Icon: IconBrandGraphql,
     label: "Uses GraphQL",
+  },
+  firebase: {
+    color: "orange",
+    text: "Firebase",
+    Icon: IconBrandFirebase,
+    label: "Uses the Firebase platform",
   },
 });
 

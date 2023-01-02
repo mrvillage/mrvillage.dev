@@ -3,6 +3,7 @@ import {
   IconApiApp,
   IconBow,
   IconBrowser,
+  IconCalendarStats,
   IconForbid,
   IconLock,
   IconRobot,
@@ -164,5 +165,15 @@ const projects: ProjectCardData[] = [
     technologies: ["python", "discord api"],
     github: "mrvillage/quarrel",
     pypi: "quarrel",
+  },
+  {
+    name: "VC Coverages",
+    Icon: IconCalendarStats,
+    description:
+      "A basic web application for managing teacher coverages for my high school.",
+    status: "completed",
+    technologies: ["react", "typescript", "css", "mantine", "firebase"],
+    website: "vc-coverages.mrvillage.dev",
+    closed_source: true,
   },
 ];

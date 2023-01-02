@@ -2,6 +2,7 @@ import { ActionIcon, Box, Center, createStyles, Group } from "@mantine/core";
 import { showNotification } from "@mantine/notifications";
 import { Link, useSearchParams } from "@remix-run/react";
 import type { TablerIcon } from "@tabler/icons";
+import { IconMoodSmile } from "@tabler/icons";
 import { IconInfoCircle } from "@tabler/icons";
 import {
   IconAlertCircle,
@@ -61,7 +62,7 @@ interface MainLink {
 }
 
 export default function Index() {
-  const { classes, cx, theme } = useStyles();
+  const { classes, theme } = useStyles();
   const [shown, setShown] = useState(false);
   const [pointerEvents, setPointerEvents] = useState<"none" | undefined>(
     "none"
@@ -83,6 +84,10 @@ export default function Index() {
       {
         Icon: IconBrandLinkedin,
         to: "/s/linkedin",
+      },
+      {
+        Icon: IconMoodSmile,
+        to: "/me",
       },
       {
         Icon: IconTie,
@@ -123,7 +128,7 @@ export default function Index() {
     } else {
       links.push({
         Icon: IconLogin,
-        to: "/login",
+        to: "/admin/login",
       });
     }
     return links;
@@ -182,19 +187,20 @@ export default function Index() {
       <Group
         align="center"
         position="center"
-        className={cx(classes.group, classes.biggerGroup)}
+        className={classes.group}
+        // className={cx(classes.group, classes.biggerGroup)}
         spacing={40}
       >
         {icons}
       </Group>
-      <Group
+      {/* <Group
         align="center"
         position="center"
         className={cx(classes.group, classes.smallerGroup)}
-        spacing={20}
+        spacing={40}
       >
         {icons}
-      </Group>
+      </Group> */}
     </div>
   );
 }
