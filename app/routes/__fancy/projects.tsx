@@ -1,4 +1,4 @@
-import { Grid } from "@mantine/core";
+import { Grid, Transition } from "@mantine/core";
 import {
   IconApiApp,
   IconBow,
@@ -15,16 +15,37 @@ import {
   IconToolsKitchen2,
   IconWorld,
 } from "@tabler/icons";
+import { useEffect, useState } from "react";
 import type { ProjectCardData } from "~/components/ProjectCard";
 import ProjectCard from "~/components/ProjectCard";
 
 export default function Projects() {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <Grid m={0}>
-      {projects.map((project) => (
-        <Grid.Col md={4} xl={3} xs={12} p="md" key={project.name}>
-          <ProjectCard {...project} />
-        </Grid.Col>
+      {projects.map((project, i) => (
+        <Transition
+          key={project.name}
+          transition="pop-top-left"
+          duration={1000}
+          timingFunction="ease"
+          mounted={mounted}
+        >
+          {(styles) => (
+            <Grid.Col
+              md={4}
+              xl={3}
+              xs={12}
+              p="md"
+              style={{ ...styles, transitionDelay: `${250 * i}ms` }}
+            >
+              <ProjectCard {...project} />
+            </Grid.Col>
+          )}
+        </Transition>
       ))}
     </Grid>
   );
