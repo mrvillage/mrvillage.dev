@@ -12,7 +12,6 @@ import {
   IconHome,
   IconLogin,
   IconLogout,
-  IconTie,
 } from "@tabler/icons";
 import { useEffect, useMemo, useState } from "react";
 import Typing from "~/components/Typing";
@@ -88,10 +87,6 @@ export default function Index() {
       {
         Icon: IconMoodSmile,
         to: "/me",
-      },
-      {
-        Icon: IconTie,
-        to: "/resume",
       },
       {
         Icon: IconBackhoe,
