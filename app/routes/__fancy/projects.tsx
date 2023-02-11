@@ -57,7 +57,7 @@ const projects: ProjectCardData[] = [
     Icon: IconRobot,
     description:
       "A Discord bot for Politics and War that provides a wide variety of tools for helping players manage their nations and alliances. The bot is currently being rewritten as a community project.",
-    status: "in progress",
+    status: "backburner",
     technologies: ["rust", "python", "discord api"],
     github: ["politicsandwar-community/rift", "mrvillage/rift"],
     website: "rift.mrvillage.dev",
