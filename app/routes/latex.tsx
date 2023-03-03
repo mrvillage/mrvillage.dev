@@ -6,19 +6,15 @@ export const action: ActionFunction = async ({
   request,
   params: { display },
 }) => {
-  return json({
+  const res = json({
     html: katex.renderToString(await request.text(), {
       throwOnError: false,
       displayMode: display === "display",
       output: "html",
     }),
   });
+  res.headers.set("Access-Control-Allow-Origin", "*");
+  res.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+  res.headers.set("Access-Control-Allow-Headers", "Content-Type");
+  return res;
 };
-
-export function headers() {
-  return {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type",
-  };
-}
