@@ -22,6 +22,7 @@ export const action: ActionFunction = async ({
 export const loader: LoaderFunction = async ({
   params: { display, latex },
 }) => {
+  return new Response(latex);
   const res = new Response(
     katex.renderToString(latex || "", {
       throwOnError: false,
