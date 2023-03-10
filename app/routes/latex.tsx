@@ -23,13 +23,23 @@ export const loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url);
   const latex = url.searchParams.get("latex");
   const display = url.searchParams.get("display");
+  const html = katex.renderToString(latex || "", {
+    throwOnError: false,
+    displayMode: display === "display",
+    output: "html",
+  });
   const res = new Response(
-    '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">' +
-      katex.renderToString(latex || "", {
-        throwOnError: false,
-        displayMode: display === "display",
-        output: "html",
-      })
+    `<!DOCTYPE html>
+  <html>
+    <head>
+      <meta charset="utf-8">
+      <title>Latex</title>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css" integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+    </head>
+    <body>
+      ${html}
+    </body>
+  </html>`
   );
   res.headers.set("Access-Control-Allow-Origin", "*");
   res.headers.set("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
