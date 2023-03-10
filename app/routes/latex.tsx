@@ -19,10 +19,10 @@ export const action: ActionFunction = async ({
   return res;
 };
 
-export const loader: LoaderFunction = async ({
-  params: { display, latex },
-}) => {
-  return new Response(latex);
+export const loader: LoaderFunction = async ({ request }) => {
+  const url = new URL(request.url);
+  const latex = url.searchParams.get("latex");
+  const display = url.searchParams.get("display");
   const res = new Response(
     katex.renderToString(latex || "", {
       throwOnError: false,
