@@ -75,7 +75,8 @@ const projects: ProjectCardData[] = [
   {
     name: "bay-lang",
     Icon: IconRipple,
-    description: "A Rust-like programming language with a focus on memory and logical safety. I currently have some basic parsing and am planning various language features and learning associated topics.",
+    description:
+      "A Rust-like programming language with a focus on memory and logical safety. I currently have some basic parsing and am planning various language features and learning associated topics.",
     status: "in progress",
     technologies: ["rust"],
     github: "bay-lang/bay",
