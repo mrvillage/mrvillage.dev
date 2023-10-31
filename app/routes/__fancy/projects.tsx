@@ -5,6 +5,7 @@ import {
   IconBrowser,
   IconCalendarStats,
   IconForbid,
+  IconKarate,
   IconLock,
   IconRobot,
   IconScript,
@@ -53,11 +54,29 @@ export default function Projects() {
 
 const projects: ProjectCardData[] = [
   {
+    name: "TeamCBBA",
+    Icon: IconKarate,
+    description:
+      "An all-in-one membership management, billing, attendance tracking, and website for my karate school.",
+    status: "in progress",
+    technologies: [
+      "react",
+      "typescript",
+      "tailwind",
+      "stripe",
+      "nextjs",
+      "cloudflare",
+      "cloudflare pages",
+    ],
+    website: "teamcbba.pages.dev",
+    closed_source: true,
+  },
+  {
     name: "Rift",
     Icon: IconRobot,
     description:
       "A Discord bot for Politics and War that provides a wide variety of tools for helping players manage their nations and alliances. The bot is currently being rewritten as a community project.",
-    status: "backburner",
+    status: "dead",
     technologies: ["rust", "python", "discord api"],
     github: ["politicsandwar-community/rift", "mrvillage/rift"],
     website: "rift.mrvillage.dev",
