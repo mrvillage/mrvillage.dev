@@ -83,10 +83,10 @@ export default function Background() {
         <style>
           {`
           #tsparticles {
-            animation: fade-in 1s ease-in-out;
+            animation: tsp-fade-in 1s ease-in-out;
           }
 
-          @keyframes fade-in {
+          @keyframes tsp-fade-in {
             0% {
               opacity: 0;
             }
