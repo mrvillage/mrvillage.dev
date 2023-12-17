@@ -1,5 +1,13 @@
 import { ColumnType, Selectable } from "kysely";
 
+export interface LinkTable {
+  id: ConstantUuid;
+  url: string;
+  slug: string;
+  name: string;
+  created_at: ConstantDate;
+}
+
 // AUTH
 export interface AccountTable {
   id: ConstantUuid;
