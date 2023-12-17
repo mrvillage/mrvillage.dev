@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import { ISourceOptions } from "@tsparticles/engine";
+import { Container, ISourceOptions } from "@tsparticles/engine";
 import { tailwindConfig } from "@/lib/utils";
 
 export default function Background() {
@@ -17,7 +17,7 @@ export default function Background() {
     });
   });
 
-  const particlesLoaded = async (container: any) => {
+  const particlesLoaded = async (container: Container | undefined) => {
     console.log(container);
   };
 
@@ -29,11 +29,9 @@ export default function Background() {
           events: {
             onClick: {
               enable: false,
-              mode: "push",
             },
             onHover: {
               enable: false,
-              mode: "repulse",
             },
           },
         },
@@ -81,11 +79,30 @@ export default function Background() {
 
   if (init) {
     return (
-      <Particles
-        id="tsparticles"
-        particlesLoaded={particlesLoaded}
-        options={options}
-      />
+      <>
+        <style>
+          {`
+          #tsparticles {
+            animation: fade-in 1s ease-in-out;
+          }
+
+          @keyframes fade-in {
+            0% {
+              opacity: 0;
+            }
+            100% {
+              opacity: 1;
+            }
+          }
+        `}
+        </style>
+        <Particles
+          id="tsparticles"
+          particlesLoaded={particlesLoaded}
+          options={options}
+          className="transition-all animate-in fade-in opacity-100"
+        />
+      </>
     );
   } else {
     return <></>;
