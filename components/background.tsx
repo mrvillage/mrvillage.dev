@@ -24,11 +24,6 @@ export default function Background() {
   const options = useMemo(
     () =>
       ({
-        background: {
-          color: {
-            value: tailwindConfig.theme.colors.neutral[900],
-          },
-        },
         fpsLimit: 120,
         interactivity: {
           events: {
@@ -40,7 +35,6 @@ export default function Background() {
               enable: false,
               mode: "repulse",
             },
-            // resize: true,
           },
         },
         particles: {
@@ -66,10 +60,9 @@ export default function Background() {
           },
           number: {
             density: {
-              enable: false,
-              // area: 800,
+              enable: true,
             },
-            value: 150,
+            value: 250,
           },
           opacity: {
             value: 0.5,
