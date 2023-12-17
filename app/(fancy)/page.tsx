@@ -52,7 +52,7 @@ export default function Home() {
   return (
     <>
       <div className="pt-[30vh] text-center flex justify-center">
-        <Typing text="mrvillage" />
+        <Typing text="mrvillage" caretIterations="15" />
       </div>
       <div className="text-center">
         <div className="inline-grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 justify-center items-center text-center px-4 pt-14 gap-x-4 sm:gap-x-8 md:gap-x-10 gap-y-6">
