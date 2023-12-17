@@ -6,7 +6,7 @@ import { loadSlim } from "@tsparticles/slim";
 import { ISourceOptions } from "@tsparticles/engine";
 import { tailwindConfig } from "@/lib/utils";
 
-export function Background() {
+export default function Background() {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
