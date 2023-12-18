@@ -36,7 +36,6 @@ export const {
 
 export const isAdmin = cache(async (): Promise<boolean> => {
   const session = await auth();
-  console.log(session);
   if (!session || !session.user) return false;
   return (
     (await db

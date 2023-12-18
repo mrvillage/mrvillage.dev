@@ -7,7 +7,6 @@ export default async function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  console.log(await auth());
   if (!(await isAdmin())) {
     redirect("/");
   }

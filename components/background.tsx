@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import { Container, ISourceOptions } from "@tsparticles/engine";
+import { ISourceOptions } from "@tsparticles/engine";
 import { tailwindConfig } from "@/lib/utils";
 
 export default function Background() {
@@ -16,10 +16,6 @@ export default function Background() {
       setInit(true);
     });
   });
-
-  const particlesLoaded = async (container: Container | undefined) => {
-    console.log(container);
-  };
 
   const options = useMemo(
     () =>
@@ -98,7 +94,6 @@ export default function Background() {
         </style>
         <Particles
           id="tsparticles"
-          particlesLoaded={particlesLoaded}
           options={options}
           className="transition-all animate-in fade-in opacity-100"
         />
