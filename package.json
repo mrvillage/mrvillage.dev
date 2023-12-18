@@ -14,8 +14,6 @@
     "proxy": "npx cf-bindings-proxy"
   },
   "dependencies": {
-    "@auth/core": "^0.18.4",
-    "@auth/d1-adapter": "^0.2.9",
     "@cloudflare/workers-types": "^4.20231121.0",
     "@mantine/hooks": "^7.3.2",
     "@radix-ui/react-icons": "^1.3.0",
@@ -33,7 +31,6 @@
     "kysely": "^0.26.3",
     "kysely-d1": "^0.3.0",
     "next": "14.0.4",
-    "next-auth": "^5.0.0-beta.4",
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",

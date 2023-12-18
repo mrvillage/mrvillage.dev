@@ -1,7 +1,7 @@
 import { Icons } from "@/components/icons";
 import { Typing } from "@/components/typing";
 import { buttonVariants } from "@/components/ui/button";
-import { EMAIL_LINK, GITHUB_LINK, LINKEDIN_LINK } from "@/lib/consts";
+import { EMAIL_LINK, GITHUB_LINK, LINKEDIN_LINK, V19_LINK } from "@/lib/consts";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
@@ -42,9 +42,9 @@ const LINKS = [
     text: "About Me",
   },
   {
-    href: "/login",
-    Icon: Icons.Login,
-    text: "Login",
+    href: V19_LINK,
+    Icon: Icons.v19,
+    text: "v19.io",
   },
 ];
 

@@ -4,6 +4,7 @@ import {
   IconBrandGithub,
   IconBrandLinkedin,
   IconChevronLeft,
+  IconGitCherryPick,
   IconKarate,
   IconLogin,
   IconMail,
@@ -20,4 +21,5 @@ export const Icons = {
   AboutMe: IconKarate,
   Login: IconLogin,
   Back: IconChevronLeft,
+  v19: IconGitCherryPick,
 };

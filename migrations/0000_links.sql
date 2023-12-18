@@ -1,4 +1,4 @@
--- Migration number: 0001 	 2023-12-17T19:00:20.886Z
+-- Migration number: 0000 	 2023-12-17T19:00:20.886Z
 CREATE TABLE links (
   id TEXT NOT NULL,
   url TEXT NOT NULL,
