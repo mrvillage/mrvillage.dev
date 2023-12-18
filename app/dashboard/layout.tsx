@@ -1,4 +1,4 @@
-import { auth, isAdmin } from "@/lib/auth";
+import { isAdmin } from "@/lib/auth";
 import { redirect } from "next/navigation";
 
 export const runtime = "edge";
