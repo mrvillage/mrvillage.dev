@@ -13,7 +13,7 @@ export default async function LoginPage() {
       <HomeButton />
       <div className="flex flex-col items-center text-center justify-center h-[100vh]">
         <GithubLoginButton />
-        <div className="text-muted-foreground pt-2">
+        <div className="text-muted-foreground pt-2 px-2">
           If you&apos;re not me, then you can click the button, you just
           won&apos;t actually be able to do anything...so up to you!
         </div>
