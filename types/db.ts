@@ -8,6 +8,14 @@ export interface LinkTable {
   created_at: ConstantDate;
 }
 
+export type Link = Selectable<LinkTable>;
+
+export interface AdminTable {
+  id: ConstantUuid;
+}
+
+export type Admin = Selectable<AdminTable>;
+
 // AUTH
 export interface AccountTable {
   id: ConstantUuid;
@@ -54,6 +62,7 @@ export type VerificationToken = Selectable<VerificationTokenTable>;
 // DATABASE TYPES
 export interface Database {
   links: LinkTable;
+  admins: AdminTable;
 
   accounts: AccountTable;
   sessions: SessionTable;
