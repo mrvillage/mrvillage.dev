@@ -1,11 +1,7 @@
 -- Migration number: 0000 	 2023-12-17T19:00:20.886Z
 CREATE TABLE links (
-  id TEXT NOT NULL,
-  url TEXT NOT NULL,
   slug TEXT NOT NULL,
-  name TEXT NOT NULL,
+  url TEXT NOT NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (id)
+  PRIMARY KEY (slug)
 );
-
-CREATE UNIQUE INDEX links_slug_idx ON links (slug);

@@ -1,10 +1,8 @@
 import { ColumnType, Selectable } from "kysely";
 
 export interface LinkTable {
-  id: ConstantUuid;
-  url: string;
   slug: string;
-  name: string;
+  url: string;
   created_at: ConstantDate;
 }
 
