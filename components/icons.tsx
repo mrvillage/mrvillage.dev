@@ -3,6 +3,7 @@ import {
   IconBackhoe,
   IconBrandGithub,
   IconBrandLinkedin,
+  IconChevronLeft,
   IconKarate,
   IconLogin,
   IconMail,
@@ -18,4 +19,5 @@ export const Icons = {
   Projects: IconBackhoe,
   AboutMe: IconKarate,
   Login: IconLogin,
+  Back: IconChevronLeft,
 };
