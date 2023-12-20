@@ -72,6 +72,7 @@ export const Author = defineDocumentType(() => ({
     },
     website: {
       type: "string",
+      required: true,
     },
   },
   computedFields,
