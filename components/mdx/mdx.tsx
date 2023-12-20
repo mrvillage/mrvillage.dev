@@ -147,7 +147,7 @@ const components: MDXComponents = {
       {...props}
     />
   ),
-  Image: (props) => <Image {...props} />,
+  Image: ({ alt, ...props }) => <Image alt={alt} {...props} />,
   Callout,
 };
 
