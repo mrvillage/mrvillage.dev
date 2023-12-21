@@ -14,7 +14,7 @@ interface MdxProps {
 export async function MdxInner({ code, path }: MdxProps) {
   const Component = env.NEXT_PUBLIC_IS_DEV
     ? getMDXComponent(code)
-    : (await import(`@/content-dist/${path}.ts`)).default(
+    : (await import(`@/content-dist/${path}.js`)).default(
         React,
         ReactDOM,
         _jsx_runtime
