@@ -13,7 +13,7 @@ for (const t of types) {
 
   // const allDocuments: any[] = [];
   for (const doc of allDocuments) {
-    const path = `${doc._raw.flattenedPath}.ts`;
+    const path = `${doc._raw.flattenedPath}.js`;
     const dir = path.split("/").slice(0, -1).join("/");
     if (!existsSync(`./content-dist/${dir}`)) {
       mkdirSync(`./content-dist/${dir}`, { recursive: true });
