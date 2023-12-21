@@ -47,7 +47,7 @@ export const Post = defineDocumentType(() => ({
     },
     tags: {
       type: "list",
-      of: { type: "enum", options: ["Engineering"] },
+      of: { type: "enum", options: ["Engineering", "Personal"] },
       required: true,
     },
   },

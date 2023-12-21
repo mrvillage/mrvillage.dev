@@ -173,7 +173,7 @@ export default async function PostPage({ params }: PostPageProps) {
         </div>
       ) : null}
       <hr className="my-4" />
-      <Mdx code={post.body.code} />
+      <Mdx code={post.body.code} path={post._raw.flattenedPath} />
       <hr className="mt-6" />
       <div className="flex justify-center py-4 lg:py-6">
         <Link href="/blog" className={cn(buttonVariants({ variant: "ghost" }))}>
