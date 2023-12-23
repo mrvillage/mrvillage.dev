@@ -1,4 +1,4 @@
-import { Icons } from "@/components/icons";
+import * as Icons from "@/components/icons";
 import { Typing } from "@/components/typing";
 import { buttonVariants } from "@/components/ui/button";
 import { EMAIL_LINK, GITHUB_LINK, LINKEDIN_LINK, V19_LINK } from "@/lib/consts";

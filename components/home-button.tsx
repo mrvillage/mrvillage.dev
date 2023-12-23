@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/utils";
-import { Icons } from "./icons";
+import * as Icons from "./icons";
 
 export function HomeButton() {
   return (

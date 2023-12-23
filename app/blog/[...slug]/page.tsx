@@ -10,7 +10,7 @@ import Link from "next/link";
 
 import { absoluteUrl, cn, formatDate } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
-import { Icons } from "@/components/icons";
+import * as Icons from "@/components/icons";
 import { env } from "@/lib/env";
 import { BlogTag } from "@/components/blog-tag";
 
