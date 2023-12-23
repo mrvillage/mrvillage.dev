@@ -13,7 +13,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: "mrvillage",
-  description: "Hi! I'm Village, a software developer.",
+  description: "Software engineer, avid reader, black belt",
   applicationName: "mrvillage.dev",
   keywords: [
     "mrvillage",
@@ -47,6 +47,7 @@ export const metadata: Metadata = {
     "rust",
     "rustlang",
     "rust-lang",
+    "karate",
   ],
   creator: "Josef Graf",
   authors: [{ name: "Josef Graf", url: "https://mrvillage.dev" }],
