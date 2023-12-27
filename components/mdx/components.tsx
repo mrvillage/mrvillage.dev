@@ -130,7 +130,7 @@ export const components: MDXComponents = {
   pre: ({ className, ...props }) => (
     <pre
       className={cn(
-        "mb-4 mt-6 overflow-x-auto rounded-lg border bg-black py-4",
+        "mb-4 mt-6 overflow-x-auto rounded-lg border bg-black py-4 border-transparent",
         className
       )}
       {...props}
@@ -139,7 +139,7 @@ export const components: MDXComponents = {
   code: ({ className, ...props }) => (
     <code
       className={cn(
-        "relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm",
+        "relative rounded border px-[0.3rem] py-[0.2rem] font-mono text-sm border-transparent",
         className
       )}
       {...props}
