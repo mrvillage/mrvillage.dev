@@ -35,7 +35,6 @@ export async function GET(req: Request) {
         : values.heading;
 
     const fontSize = heading.length > 100 ? "70px" : "100px";
-    const paint = "#fff";
 
     return new ImageResponse(
       (
@@ -46,7 +45,12 @@ export async function GET(req: Request) {
             backgroundColor: tailwindConfig.theme.colors.background,
           }}
         >
-          <img src={icon} tw="h-32 w-32" />
+          <div tw="flex flex-row justify-between items-center w-full">
+            <img src={icon} tw="h-32 w-32" />
+            <span tw="text-2xl font-bold tracking-light items-center">
+              {values.type}
+            </span>
+          </div>
           <div tw="flex flex-col flex-1 py-10 w-full justify-between">
             <div
               tw="flex leading-[1.1] text-[80px] font-bold"
