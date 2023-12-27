@@ -75,8 +75,8 @@ export default function Me() {
                     <Image
                       src={firstDegreeImg}
                       alt="Me with my first-degree black belt"
-                      // width={300}
                       height={400}
+                      placeholder="blur"
                     />
                   </div>
                 </CarouselItem>
@@ -85,8 +85,8 @@ export default function Me() {
                     <Image
                       src={secondDegreeImg}
                       alt="Me with my second-degree black belt"
-                      // width={300}
                       height={400}
+                      placeholder="blur"
                     />
                   </div>
                 </CarouselItem>
@@ -95,8 +95,8 @@ export default function Me() {
                     <Image
                       src={onBikeImg}
                       alt="Me on my bike"
-                      // width={300}
                       height={400}
+                      placeholder="blur"
                     />
                   </div>
                 </CarouselItem>
@@ -105,8 +105,8 @@ export default function Me() {
                     <Image
                       src={climbingImg}
                       alt="Me climbing"
-                      // width={300}
                       height={400}
+                      placeholder="blur"
                     />
                   </div>
                 </CarouselItem>
@@ -200,8 +200,8 @@ export default function Me() {
                     <Image
                       src={books1Img}
                       alt="A picture of my bookshelf"
-                      // width={300}
                       height={400}
+                      placeholder="blur"
                     />
                   </div>
                 </CarouselItem>
@@ -210,8 +210,8 @@ export default function Me() {
                     <Image
                       src={books2Img}
                       alt="A picture of my bookshelf"
-                      // width={300}
                       height={400}
+                      placeholder="blur"
                     />
                   </div>
                 </CarouselItem>
@@ -249,8 +249,8 @@ export default function Me() {
                     <Image
                       src={lakeImg}
                       alt="A picture of a lake"
-                      // width={300}
                       height={400}
+                      placeholder="blur"
                     />
                   </div>
                 </CarouselItem>
@@ -259,8 +259,8 @@ export default function Me() {
                     <Image
                       src={punchbowlImg}
                       alt="A picture of the Devil's Punchbowl"
-                      // width={300}
                       height={400}
+                      placeholder="blur"
                     />
                   </div>
                 </CarouselItem>
@@ -269,8 +269,8 @@ export default function Me() {
                     <Image
                       src={treesImg}
                       alt="A picture of the trees on a hike"
-                      // width={300}
                       height={400}
+                      placeholder="blur"
                     />
                   </div>
                 </CarouselItem>
@@ -279,8 +279,8 @@ export default function Me() {
                     <Image
                       src={palmTreesImg}
                       alt="A picture of palm trees"
-                      // width={300}
                       height={400}
+                      placeholder="blur"
                     />
                   </div>
                 </CarouselItem>
