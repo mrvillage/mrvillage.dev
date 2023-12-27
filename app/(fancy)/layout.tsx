@@ -12,10 +12,8 @@ export default function FancyLayout({
   return (
     <>
       <Background />
-      <div className="relative">
-        <div className="absolute top-0 left-0 right-0 bottom-0 inset-0">
-          {children}
-        </div>
+      <div className="absolute top-0 left-0 right-0 bottom-0 inset-0">
+        {children}
       </div>
     </>
   );
