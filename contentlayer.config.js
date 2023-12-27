@@ -140,6 +140,10 @@ const Project = defineDocumentType(() => ({
       type: "boolean",
       default: false,
     },
+    precedence: {
+      type: "number",
+      default: 0,
+    },
   },
   computedFields,
 }));

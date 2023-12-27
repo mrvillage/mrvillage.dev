@@ -1,13 +1,24 @@
 import { allProjects } from "contentlayer/generated";
 import * as Icons from "@/components/icons";
-import { cn } from "@/lib/utils";
+import { cn, ensureLinkProtocol, getPrettyLink } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { ProjectStatusBadge } from "@/components/project-status-badge";
 import { TechnologyBadge } from "@/components/technology-badge";
+import { STATUS_PRECENDENCE } from "@/lib/consts";
 
 export const runtime = "edge";
 export default function ProjectsPage() {
+  const sortedProjects = allProjects.sort((a, b) => {
+    if (a.precedence !== b.precedence) {
+      return a.precedence - b.precedence;
+    }
+    if (a.status !== b.status) {
+      return STATUS_PRECENDENCE[a.status] - STATUS_PRECENDENCE[b.status];
+    }
+    return a.name.localeCompare(b.name);
+  });
+
   const InfoGridItem = ({
     title,
     link,
@@ -41,7 +52,7 @@ export default function ProjectsPage() {
       </Link>
       <h1 className="text-3xl font-bold text-center">Projects</h1>
       <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 pt-8">
-        {allProjects.map((project, index) => {
+        {sortedProjects.map((project, index) => {
           return (
             <article
               key={index}
@@ -74,8 +85,8 @@ export default function ProjectsPage() {
                   {project.docs && (
                     <InfoGridItem
                       title="Docs"
-                      link={project.docs}
-                      text={project.docs}
+                      link={ensureLinkProtocol(project.docs)}
+                      text={getPrettyLink(project.docs)}
                     />
                   )}
                   {project.crate && (
@@ -102,8 +113,8 @@ export default function ProjectsPage() {
                   {project.website && (
                     <InfoGridItem
                       title="Website"
-                      link={project.website}
-                      text={project.website}
+                      link={ensureLinkProtocol(project.website)}
+                      text={getPrettyLink(project.website)}
                     />
                   )}
                 </div>

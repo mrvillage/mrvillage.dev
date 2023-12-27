@@ -1,7 +1,12 @@
 import { allProjects } from "@/.contentlayer/generated";
 import { buttonVariants } from "@/components/ui/button";
 import { env } from "@/lib/env";
-import { absoluteUrl, cn } from "@/lib/utils";
+import {
+  absoluteUrl,
+  cn,
+  ensureLinkProtocol,
+  getPrettyLink,
+} from "@/lib/utils";
 import "@/styles/mdx.css";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -153,8 +158,8 @@ export default async function ProjectPage({ params }: PostPageProps) {
           {project.docs && (
             <InfoGridItem
               title="Docs"
-              link={project.docs}
-              text={project.docs}
+              link={ensureLinkProtocol(project.docs)}
+              text={getPrettyLink(project.docs)}
             />
           )}
           {project.crate && (
@@ -181,8 +186,8 @@ export default async function ProjectPage({ params }: PostPageProps) {
           {project.website && (
             <InfoGridItem
               title="Website"
-              link={project.website}
-              text={project.website}
+              link={ensureLinkProtocol(project.website)}
+              text={getPrettyLink(project.website)}
             />
           )}
         </div>

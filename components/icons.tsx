@@ -16,4 +16,6 @@ export {
   IconBrandTailwind as TailwindCSS,
   IconBrandCloudflare as Cloudflare,
   IconBrandCloudflare as CloudflarePages,
+  IconBrandPython as Python,
+  IconBrandDiscord as Discord,
 } from "@tabler/icons-react";

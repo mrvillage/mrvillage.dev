@@ -57,6 +57,15 @@ export type Status =
   | "Backburner"
   | "Participating";
 
+export const STATUS_PRECENDENCE = {
+  Abandoned: 0,
+  Backburner: 1,
+  Planned: 2,
+  Participating: 3,
+  Completed: 4,
+  "In Progress": 5,
+};
+
 interface TechnologyData {
   name: string;
   color: string;
@@ -120,6 +129,20 @@ export const TECHNOLOGIES = typedTechnologies({
     Icon: Icons.CloudflarePages,
     website: "https://pages.cloudflare.com",
     label: "Hosted on Cloudflare Pages",
+  },
+  python: {
+    name: "Python",
+    color: "bg-blue-500 hover:bg-blue-600",
+    Icon: Icons.Python,
+    website: "https://python.org",
+    label: "Uses the Python programming language",
+  },
+  "discord api": {
+    name: "Discord API",
+    color: "bg-indigo-500 hover:bg-indigo-600",
+    Icon: Icons.Discord,
+    website: "https://discord.com/developers/docs/intro",
+    label: "Uses the Discord API",
   },
 });
 

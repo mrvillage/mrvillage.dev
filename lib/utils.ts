@@ -18,3 +18,17 @@ export function formatDate(input: string | number): string {
 export function absoluteUrl(path: string) {
   return `${env.NEXT_PUBLIC_APP_URL}${path}`;
 }
+
+export function getPrettyLink(url: string) {
+  return url
+    .replace(/(^\w+:|^)\/\//, "")
+    .replace(/^www\./, "")
+    .replace(/\/$/, "");
+}
+
+export function ensureLinkProtocol(url: string) {
+  if (!url.startsWith("http")) {
+    return `https://${url}`;
+  }
+  return url;
+}
