@@ -45,7 +45,7 @@ export function BlogPostList({ posts }: BlogPostListProps) {
               {post.tags.length && (
                 <div className="flex flex-wrap gap-2">
                   {post.tags.map((tag) => (
-                    <BlogTag tag={tag} />
+                    <BlogTag tag={tag} key={tag} />
                   ))}
                 </div>
               )}
