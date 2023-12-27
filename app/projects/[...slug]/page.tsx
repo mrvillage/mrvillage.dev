@@ -105,7 +105,12 @@ export default async function ProjectPage({ params }: PostPageProps) {
   if (project.website) truthyColumns++;
 
   return (
-    <article className="container relative max-w-3xl pt-6 lg:pt-8 pb-2">
+    <article
+      className={cn(
+        "container relative max-w-3xl pt-6 lg:pt-8 pb-2",
+        !project.content && "pt-32 lg:pt-36"
+      )}
+    >
       <Link
         href="/projects"
         className={cn(
@@ -115,7 +120,7 @@ export default async function ProjectPage({ params }: PostPageProps) {
       >
         <Icons.Back className="mr-2 h-4 w-4" /> More projects
       </Link>
-      <div className="flex justify-between w-full gap-x-2">
+      <div className="flex justify-between w-full gap-x-4">
         <h1 className="my-2 inline-block font-semibold text-4xl leading-tight lg:text-5xl">
           {project.name}
         </h1>
@@ -192,8 +197,12 @@ export default async function ProjectPage({ params }: PostPageProps) {
           </div>
         </div>
       )}
-      <hr className="my-4" />
-      <Mdx code={project.body.code} path={project._raw.flattenedPath} />
+      {project.content && (
+        <>
+          <hr className="my-4" />
+          <Mdx code={project.body.code} path={project._raw.flattenedPath} />
+        </>
+      )}
     </article>
   );
 }

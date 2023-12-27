@@ -1,4 +1,4 @@
-import { Project, allProjects } from "contentlayer/generated";
+import { allProjects } from "contentlayer/generated";
 import * as Icons from "@/components/icons";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -52,11 +52,9 @@ export default function ProjectsPage() {
                 <div className="flex items-center">
                   <ProjectStatusBadge status={project.status} />
                 </div>
-                {project.content && (
-                  <Link href={project.slug} className="absolute inset-0">
-                    <span className="sr-only">View Project</span>
-                  </Link>
-                )}
+                <Link href={project.slug} className="absolute inset-0">
+                  <span className="sr-only">View Project</span>
+                </Link>
               </div>
               <p className="text-muted-foreground">{project.description}</p>
               {(project.github ||
