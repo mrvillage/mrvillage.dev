@@ -116,6 +116,7 @@ export default function ProjectsPage() {
                     {project.technologies.map((technology) => (
                       <TechnologyBadge
                         key={technology}
+                        // @ts-ignore
                         technology={technology}
                       />
                     ))}
