@@ -1,7 +1,8 @@
-import { cn } from "../../lib/utils";
-import { Callout } from "./callout";
+import { cn } from "@/lib/utils";
+import { Callout } from "@/components/mdx/callout";
 import { MDXComponents } from "mdx/types";
 import Image from "next/image";
+import * as Icons from "@/components/icons";
 
 export const components: MDXComponents = {
   h1: ({ className, ...props }) => (
@@ -146,4 +147,5 @@ export const components: MDXComponents = {
   ),
   Image: ({ alt, ...props }) => <Image alt={alt} {...props} />,
   Callout,
+  Icons,
 };

@@ -9,17 +9,11 @@ export {
   IconMail as Email,
   IconTie as Resume,
   IconError404 as Error404,
+  IconBrandRust as Rust,
+  IconBrandTypescript as TypeScript,
+  IconBrandReact as React,
+  IconBrandNextjs as NextJS,
+  IconBrandTailwind as TailwindCSS,
+  IconBrandCloudflare as Cloudflare,
+  IconBrandCloudflare as CloudflarePages,
 } from "@tabler/icons-react";
-
-// export const Icons = {
-//   GitHub: IconBrandGithub,
-//   LinkedIn: IconBrandLinkedin,
-//   Email: IconMail,
-//   Resume: IconTie,
-//   Blog: IconArticle,
-//   Projects: IconBackhoe,
-//   AboutMe: IconKarate,
-//   Login: IconLogin,
-//   Back: IconChevronLeft,
-//   v19: IconGitCherryPick,
-// };

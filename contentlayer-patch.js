@@ -1,6 +1,6 @@
 const { mkdirSync, existsSync, writeFileSync, readFileSync } = require("fs");
 
-const types = ["Author", "Post", "Page"];
+const types = ["Author", "Post", "Page", "Project"];
 
 for (const t of types) {
   const documents = JSON.parse(

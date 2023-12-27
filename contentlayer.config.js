@@ -85,9 +85,68 @@ const Page = defineDocumentType(() => ({
   computedFields,
 }));
 
+const Project = defineDocumentType(() => ({
+  name: "Project",
+  filePathPattern: "projects/**/*.mdx",
+  contentType: "mdx",
+  fields: {
+    name: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+      required: true,
+    },
+    image: {
+      type: "string",
+    },
+    status: {
+      type: "enum",
+      options: [
+        "Completed",
+        "In Progress",
+        "Planned",
+        "Abandoned",
+        "Backburner",
+        "Participating",
+      ],
+      required: true,
+    },
+    github: {
+      type: "string",
+    },
+    docs: {
+      type: "string",
+    },
+    website: {
+      type: "string",
+    },
+    crate: {
+      type: "string",
+    },
+    npm: {
+      type: "string",
+    },
+    pypi: {
+      type: "string",
+    },
+    technologies: {
+      type: "list",
+      of: { type: "string" },
+      required: true,
+    },
+    content: {
+      type: "boolean",
+      default: false,
+    },
+  },
+  computedFields,
+}));
+
 export default makeSource({
   contentDirPath: "content",
-  documentTypes: [Post, Author, Page],
+  documentTypes: [Post, Author, Page, Project],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

@@ -17,10 +17,7 @@ export function BlogPostList({ posts }: BlogPostListProps) {
           return compareDesc(new Date(a.date), new Date(b.date));
         })
         .map((post, index) => (
-          <article
-            key={post._id}
-            className="group relative flex flex-col gap-y-2"
-          >
+          <article key={post._id} className="relative flex flex-col gap-y-2">
             {post.image && (
               <Image
                 src={post.image}
