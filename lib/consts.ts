@@ -38,7 +38,7 @@ export const MAIN_PAGE_LINKS = [
     text: "Projects",
   },
   {
-    href: "/about",
+    href: "/me",
     Icon: Icons.AboutMe,
     text: "About Me",
   },
