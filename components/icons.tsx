@@ -8,6 +8,7 @@ export {
   IconKarate as AboutMe,
   IconMail as Email,
   IconTie as Resume,
+  IconError404 as Error404,
 } from "@tabler/icons-react";
 
 // export const Icons = {
