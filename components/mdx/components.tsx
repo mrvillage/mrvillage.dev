@@ -67,7 +67,7 @@ export const components: MDXComponents = {
   ),
   p: ({ className, ...props }) => (
     <p
-      className={cn("leading-7 [&:not(:first-child)]:mt-6", className)}
+      className={cn("leading-7 [&:not(:first-child)]:mt-3", className)}
       {...props}
     />
   ),
@@ -97,7 +97,9 @@ export const components: MDXComponents = {
     // eslint-disable-next-line @next/next/no-img-element
     <img className={cn("rounded-md border", className)} alt={alt} {...props} />
   ),
-  hr: ({ ...props }) => <hr className="my-4 md:my-8" {...props} />,
+  hr: ({ ...props }) => (
+    <hr className="my-4 md:my-8 border-neutral-700" {...props} />
+  ),
   table: ({ className, ...props }: React.HTMLAttributes<HTMLTableElement>) => (
     <div className="my-6 w-full overflow-y-auto">
       <table className={cn("w-full", className)} {...props} />
