@@ -1,9 +1,18 @@
-interface TypingProps {
+import { cn } from "@/lib/utils";
+import { HTMLAttributes } from "react";
+
+type TypingProps = {
   text: string;
   caretIterations?: string;
-}
+} & HTMLAttributes<HTMLDivElement>;
 
-export function Typing({ text, caretIterations }: TypingProps) {
+export function Typing({
+  text,
+  caretIterations,
+  className,
+  style,
+  ...props
+}: TypingProps) {
   return (
     <>
       <style
@@ -12,7 +21,10 @@ export function Typing({ text, caretIterations }: TypingProps) {
         }}
       ></style>
       <div
-        className="font-mono text-5xl py-2 whitespace-nowrap overflow-hidden border-r-[3px] border-solid border-transparent text-white"
+        className={cn(
+          "font-mono text-5xl py-2 whitespace-nowrap overflow-hidden border-r-[3px] border-solid border-transparent text-white",
+          className
+        )}
         style={{
           width: `calc(${text.length}ch + 3px)`,
           animationDelay: "0.5s",
@@ -22,7 +34,9 @@ export function Typing({ text, caretIterations }: TypingProps) {
           animationIterationCount: `1, ${caretIterations ?? "infinite"}`,
           animationDirection: "normal, alternate",
           animationFillMode: "both, forwards",
+          ...style,
         }}
+        {...props}
       >
         {text}
       </div>
