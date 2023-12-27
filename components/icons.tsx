@@ -18,4 +18,12 @@ export {
   IconBrandCloudflare as CloudflarePages,
   IconBrandPython as Python,
   IconBrandDiscord as Discord,
+  IconBrandStripe as Stripe,
+  IconBrandPhp as PHP,
+  IconBrandLaravel as Laravel,
+  IconBrandCss3 as CSS,
+  IconBrandHtml5 as HTML,
+  IconBrandMysql as MySQL,
+  IconBrandDebian as Debian,
+  IconBrandGraphql as GraphQL,
 } from "@tabler/icons-react";

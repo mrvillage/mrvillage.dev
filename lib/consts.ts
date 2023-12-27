@@ -144,6 +144,62 @@ export const TECHNOLOGIES = typedTechnologies({
     website: "https://discord.com/developers/docs/intro",
     label: "Uses the Discord API",
   },
+  stripe: {
+    name: "Stripe",
+    color: "bg-purple-500 hover:bg-purple-600",
+    Icon: Icons.Stripe,
+    website: "https://stripe.com",
+    label: "Uses Stripe",
+  },
+  php: {
+    name: "PHP",
+    color: "bg-purple-500 hover:bg-purple-600",
+    Icon: Icons.PHP,
+    website: "https://php.net",
+    label: "Uses the PHP programming language",
+  },
+  laravel: {
+    name: "Laravel",
+    color: "bg-red-500 hover:bg-red-600",
+    Icon: Icons.Laravel,
+    website: "https://laravel.com",
+    label: "Uses the Laravel framework",
+  },
+  css: {
+    name: "CSS",
+    color: "bg-blue-500 hover:bg-blue-600",
+    Icon: Icons.CSS,
+    website: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+    label: "Uses CSS",
+  },
+  html: {
+    name: "HTML",
+    color: "bg-orange-500 hover:bg-orange-600",
+    Icon: Icons.HTML,
+    website: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    label: "Uses HTML",
+  },
+  mysql: {
+    name: "MySQL",
+    color: "bg-blue-500 hover:bg-blue-600",
+    Icon: Icons.MySQL,
+    website: "https://mysql.com",
+    label: "Uses MySQL",
+  },
+  linux: {
+    name: "Linux",
+    color: "bg-yellow-500 hover:bg-yellow-600",
+    Icon: Icons.Debian,
+    website: "https://linux.org",
+    label: "Uses Linux",
+  },
+  graphql: {
+    name: "GraphQL",
+    color: "bg-pink-500 hover:bg-pink-600",
+    Icon: Icons.GraphQL,
+    website: "https://graphql.org",
+    label: "Uses GraphQL",
+  },
 });
 
 export type Technology = keyof typeof TECHNOLOGIES;
