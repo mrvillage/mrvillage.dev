@@ -123,7 +123,7 @@ export default async function PostPage({ params }: PostPageProps) {
           priority
         />
       )}
-      <div className="flex justify-between mt-3">
+      <div className="flex justify-between mt-1">
         <time
           dateTime={post.date}
           className="block text-sm text-muted-foreground"
@@ -135,7 +135,7 @@ export default async function PostPage({ params }: PostPageProps) {
         </p>
       </div>
       {authors?.length ? (
-        <div className="mt-3 grid grid-cols-2 gap-x-6 gap-y-3">
+        <div className="mt-4 grid grid-cols-2 gap-x-6 gap-y-3">
           {authors.map((author) => {
             if (!author) {
               return null;
