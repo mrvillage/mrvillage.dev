@@ -100,7 +100,7 @@ export default async function PostPage({ params }: PostPageProps) {
       <h1 className="mt-2 inline-block font-semibold text-4xl leading-tight lg:text-5xl">
         {post.title}
       </h1>
-      {post.tags.length ? (
+      {post.tags.length && (
         <div className="flex flex-wrap gap-2 mt-2">
           {post.tags.map((tag) => (
             <Link href={`/blog/tag/${tag}`} key={tag}>
@@ -108,7 +108,7 @@ export default async function PostPage({ params }: PostPageProps) {
             </Link>
           ))}
         </div>
-      ) : null}
+      )}
       <hr className="mt-4 mb-2" />
       {post.description && (
         <p className="text-lg text-muted-foreground">{post.description}</p>
@@ -124,14 +124,12 @@ export default async function PostPage({ params }: PostPageProps) {
         />
       )}
       <div className="flex justify-between mt-3">
-        {post.date && (
-          <time
-            dateTime={post.date}
-            className="block text-sm text-muted-foreground"
-          >
-            {formatDate(post.date)}
-          </time>
-        )}
+        <time
+          dateTime={post.date}
+          className="block text-sm text-muted-foreground"
+        >
+          {formatDate(post.date)}
+        </time>
         <p className="block text-sm text-muted-foreground">
           {Math.round(post.body.code.split(" ").length / 200)} min read
         </p>
