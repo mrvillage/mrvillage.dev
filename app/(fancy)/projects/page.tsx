@@ -11,10 +11,10 @@ export const runtime = "edge";
 export default function ProjectsPage() {
   const sortedProjects = allProjects.sort((a, b) => {
     if (a.precedence !== b.precedence) {
-      return a.precedence - b.precedence;
+      return b.precedence - a.precedence;
     }
     if (a.status !== b.status) {
-      return STATUS_PRECENDENCE[a.status] - STATUS_PRECENDENCE[b.status];
+      return STATUS_PRECENDENCE[b.status] - STATUS_PRECENDENCE[a.status];
     }
     return a.name.localeCompare(b.name);
   });
@@ -92,7 +92,7 @@ export default function ProjectsPage() {
                   {project.crate && (
                     <InfoGridItem
                       title="Crates"
-                      link={`https://crates.io/crate/${project.crate}`}
+                      link={`https://crates.io/crates/${project.crate}`}
                       text={project.crate}
                     />
                   )}

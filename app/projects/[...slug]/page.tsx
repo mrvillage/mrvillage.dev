@@ -165,7 +165,7 @@ export default async function ProjectPage({ params }: PostPageProps) {
           {project.crate && (
             <InfoGridItem
               title="Crates"
-              link={`https://crates.io/crate/${project.crate}`}
+              link={`https://crates.io/crates/${project.crate}`}
               text={project.crate}
             />
           )}
