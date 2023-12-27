@@ -18,17 +18,22 @@ export function BlogPostList({ posts }: BlogPostListProps) {
         })
         .map((post, index) => (
           <article key={post._id} className="relative flex flex-col gap-y-2">
-            {post.image && (
-              <Image
-                src={post.image}
-                alt={post.title}
-                width={804}
-                height={452}
-                className="rounded-md border bg-muted transition-colors"
-                priority={index <= 1}
-              />
-            )}
-            <h2 className="text-2xl font-bold">{post.title}</h2>
+            <div className="relative flex flex-col gap-y-2">
+              {post.image && (
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={804}
+                  height={452}
+                  className="rounded-md border bg-muted transition-colors"
+                  priority={index <= 1}
+                />
+              )}
+              <h2 className="text-2xl font-bold">{post.title}</h2>
+              <Link href={post.slug} className="absolute inset-0">
+                <span className="sr-only">View Article</span>
+              </Link>
+            </div>
             {post.description && (
               <p className="text-muted-foreground">{post.description}</p>
             )}
@@ -47,9 +52,6 @@ export function BlogPostList({ posts }: BlogPostListProps) {
                 </div>
               )}
             </div>
-            <Link href={post.slug} className="absolute inset-0">
-              <span className="sr-only">View Article</span>
-            </Link>
           </article>
         ))}
     </div>
