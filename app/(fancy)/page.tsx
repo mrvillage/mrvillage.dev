@@ -22,7 +22,7 @@ const LINKS = [
     text: "Email",
   },
   {
-    href: "/resume",
+    href: "/resume.pdf",
     Icon: Icons.Resume,
     text: "Resume",
   },
