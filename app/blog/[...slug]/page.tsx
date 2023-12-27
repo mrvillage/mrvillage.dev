@@ -103,7 +103,7 @@ export default async function PostPage({ params }: PostPageProps) {
       {post.tags.length && (
         <div className="flex flex-wrap gap-2 mt-2">
           {post.tags.map((tag) => (
-            <Link href={`/blog/tag/${tag}`} key={tag}>
+            <Link href={`/blog/${tag.toLowerCase()}`} key={tag}>
               <BlogTag tag={tag} />
             </Link>
           ))}
