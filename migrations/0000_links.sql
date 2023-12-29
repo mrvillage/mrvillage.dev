@@ -1,0 +1,7 @@
+-- Migration number: 0000 	 2023-12-17T19:00:20.886Z
+CREATE TABLE links (
+  slug TEXT NOT NULL,
+  url TEXT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (slug)
+);
