@@ -1,8 +1,5 @@
 import * as Icons from "@/components/icons";
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 
 const Background = dynamic(() => import("@/components/background"), {
   ssr: false,
