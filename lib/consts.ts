@@ -1,21 +1,29 @@
 import * as Icons from "@/components/icons";
 import { Icon } from "@tabler/icons-react";
+import { AnchorHTMLAttributes } from "react";
 
 export const GITHUB_LINK = "https://github.com/mrvillage";
 export const LINKEDIN_LINK = "https://linkedin.com/in/josef-graf";
 export const EMAIL_LINK = "mailto:josef@mrvillage.dev";
 export const V19_LINK = "https://v19.io";
 
-export const MAIN_PAGE_LINKS = [
+export const MAIN_PAGE_LINKS: {
+  href: string;
+  Icon: Icon;
+  text: string;
+  target?: AnchorHTMLAttributes<HTMLAnchorElement>["target"];
+}[] = [
   {
     href: GITHUB_LINK,
     Icon: Icons.GitHub,
     text: "GitHub",
+    target: "_blank",
   },
   {
     href: LINKEDIN_LINK,
     Icon: Icons.LinkedIn,
     text: "LinkedIn",
+    target: "_blank",
   },
   {
     href: EMAIL_LINK,
@@ -26,6 +34,7 @@ export const MAIN_PAGE_LINKS = [
     href: "/resume.pdf",
     Icon: Icons.Resume,
     text: "Resume",
+    target: "_blank",
   },
   {
     href: "/blog",
@@ -46,6 +55,7 @@ export const MAIN_PAGE_LINKS = [
     href: V19_LINK,
     Icon: Icons.v19,
     text: "v19.io",
+    target: "_blank",
   },
 ];
 

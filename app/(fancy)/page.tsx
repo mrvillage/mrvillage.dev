@@ -25,6 +25,7 @@ export default function Home() {
                 "px-2 sm:px-4 py-2 h-12 text-2xl hover:bg-white hover:backdrop-blur-sm hover:bg-opacity-10 font-semibold gap-2"
               )}
               href={href}
+              target={target}
             >
               <Icon className="h-8 w-8" />{" "}
               <span className="w-full text-center">{text}</span>
