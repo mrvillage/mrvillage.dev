@@ -111,7 +111,7 @@ export default async function PostPage({ params }: PostPageProps) {
       {post.description && (
         <p className="text-lg text-muted-foreground">{post.description}</p>
       )}
-      {post.image && (
+      {post.image ? (
         <Image
           src={post.image}
           alt={post.title}
@@ -120,6 +120,8 @@ export default async function PostPage({ params }: PostPageProps) {
           className="mt-2 rounded border bg-muted transition-colors"
           priority
         />
+      ) : (
+        <hr className="mt-2 mb-2" />
       )}
       <div className="flex justify-between mt-1">
         <time
