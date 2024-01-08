@@ -1,0 +1,105 @@
+---
+title: Creating and distributing a TypeScript Library
+description: I had a hard time finding any documentation on this, so I decided I'd share what I figured out!
+date: 2024-01-08
+authors:
+    - mrvillage
+tags:
+    - Engineering
+---
+# Background
+So I recently wanted to start creating a library in TypeScript, the issue is I had no idea how to distribute it.
+
+Now I thought this would be a simple fix, a quick Google search, a blog post, and I'm up and running! Nope! It took more than a half dozen blog posts and some deep digging into the build processes of a half dozen libraries I use to get somewhere.
+
+In my humble opinion, the ecosystem is a mess! CJS, ESM, raw TS. Rollup, Webpack, Turbopack, Esbuild. Everyone uses a different tool, and even when I found projects using the same tools, they managed to have a completely separate build process!
+
+In the end, I found what I wanted and decided to share it here. Before I dig into my solution, I wanted to give a brief synopsis on what I was actually looking for.
+
+# What I Wanted
+What I wanted was something very simple, or at least should have been. An ESM and CommonJS compatible distribution with multiple entrypoints and TypeScript declarations doesn't seem hard does it?
+
+What I wanted boils down to the following:
+- Import default/named exports directly from the library
+- Import from specific files, like `library/basic` or `library/full`
+- Not worry about whether something is ESM or CommonJS
+- Get nice type declarations in my IDE
+
+# How I did it
+In the end, what I wanted boiled down to some basic TypeScript and Rollup configuration options, the important ones being as follows, with the full repository available on GitHub [here](https://github.com/mrvillage/blog-ts-library).
+
+```filename=tsconfig.json
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "lib": [
+      "ESNext"
+    ],
+    "module": "nodenext",
+    "baseUrl": ".",
+    "types": [
+      "node"
+    ],
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
+    "noEmitOnError": true,
+    "declarationDir": "./lib",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true
+  }
+}
+```
+
+In my tsconfig the important part is that it only emits declarations and declaration maps into a specified directory, not full JS files. Feel free to play with any of the other options!
+
+```filename=rollup.config.js
+import esbuild from "rollup-plugin-esbuild";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import { glob } from "glob";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+/** @type {import('rollup').RollupOptions} */
+export default {
+  input: Object.fromEntries(
+    glob
+      .sync("./src/**/*.ts")
+      .map((file) => [
+        path.relative(
+          "src",
+          file.slice(0, file.length - path.extname(file).length)
+        ),
+        fileURLToPath(new URL(file, import.meta.url)),
+      ])
+  ),
+  output: [
+    {
+      format: "es",
+      entryFileNames: "[name].mjs",
+      dir: "esm",
+      preserveModules: true,
+      sourcemap: true,
+    },
+    {
+      format: "cjs",
+      entryFileNames: "[name].cjs",
+      dir: "cjs",
+      preserveModules: true,
+      sourcemap: true,
+    },
+  ],
+  plugins: [nodeResolve(), esbuild({ tsconfig: "tsconfig.json" })],
+};
+```
+
+Now the Rollup config is a bit more interesting. I found in the Rollup documentation an example about parsing input, what it does is creates an object with keys relative to the src directory, and then the full file path for that entrypoint as the value. Essentially meaning rollup will compile each file individually then emit them back into their appropriate places.
+
+The output on the other hand is two entries, the top compiles the library into ESM code in the esm directory and the bottom into CommonJS code in the cjs directory, both with sourcemaps.
+
+Finally, the plugins ensure the correct module resolution behavior, and configure esbuild to actually run the compilation from TypeScript!
+
+# Conclusion
+Overall, it's not a very exciting or complicated process, there's just a serious lack of clear documentation and examples online so I thought I'd add my own. Let me know what you think, I'm still brand new to the TypeScript library world so there's a good chance I'm doing something horribly wrong!
