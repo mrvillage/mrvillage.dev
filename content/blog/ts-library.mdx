@@ -21,14 +21,14 @@ What I wanted was something very simple, or at least should have been. An ESM an
 
 What I wanted boils down to the following:
 - Import default/named exports directly from the library
-- Import from specific files, like `library/basic` or `library/full`
+- Import from specific files, like library/basic or library/full
 - Not worry about whether something is ESM or CommonJS
 - Get nice type declarations in my IDE
 
 # How I did it
 In the end, what I wanted boiled down to some basic TypeScript and Rollup configuration options, the important ones being as follows, with the full repository available on GitHub [here](https://github.com/mrvillage/blog-ts-library).
 
-```filename=tsconfig.json
+```json title="tsconfig.json"
 {
   "compilerOptions": {
     "target": "es2016",
@@ -55,7 +55,7 @@ In the end, what I wanted boiled down to some basic TypeScript and Rollup config
 
 In my tsconfig the important part is that it only emits declarations and declaration maps into a specified directory, not full JS files. Feel free to play with any of the other options!
 
-```filename=rollup.config.js
+```js title="rollup.config.js"
 import esbuild from "rollup-plugin-esbuild";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import { glob } from "glob";
