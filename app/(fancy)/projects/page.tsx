@@ -7,7 +7,6 @@ import { ProjectStatusBadge } from "@/components/project-status-badge";
 import { TechnologyBadge } from "@/components/technology-badge";
 import { STATUS_PRECENDENCE } from "@/lib/consts";
 
-export const runtime = "edge";
 export default function ProjectsPage() {
   const sortedProjects = allProjects.sort((a, b) => {
     if (a.precedence !== b.precedence) {

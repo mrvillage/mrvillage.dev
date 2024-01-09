@@ -46,6 +46,7 @@ export async function GET(req: Request) {
           }}
         >
           <div tw="flex flex-row justify-between items-center w-full">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={icon} tw="h-32 w-32" />
             <span tw="text-2xl font-bold tracking-light items-center">
               {values.type}

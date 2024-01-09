@@ -22,7 +22,7 @@ interface PostPageProps {
   };
 }
 
-async function getProjectFromParams(params: PostPageProps["params"]) {
+function getProjectFromParams(params: PostPageProps["params"]) {
   const slug = params?.slug.join("?");
   const project = allProjects.find((p) => p.slugAsParams === slug);
   if (!project) {
@@ -34,7 +34,7 @@ async function getProjectFromParams(params: PostPageProps["params"]) {
 export async function generateMetadata({
   params,
 }: PostPageProps): Promise<Metadata> {
-  const project = await getProjectFromParams(params);
+  const project = getProjectFromParams(params);
 
   if (!project) {
     return {};
@@ -73,9 +73,8 @@ export async function generateMetadata({
   };
 }
 
-export const runtime = "edge";
-export default async function ProjectPage({ params }: PostPageProps) {
-  const project = await getProjectFromParams(params);
+export default function ProjectPage({ params }: PostPageProps) {
+  const project = getProjectFromParams(params);
 
   if (!project) {
     return notFound();
@@ -210,4 +209,10 @@ export default async function ProjectPage({ params }: PostPageProps) {
       )}
     </article>
   );
+}
+
+export async function generateStaticParams() {
+  return allProjects.map((project) => ({
+    slug: [project.slugAsParams],
+  }));
 }

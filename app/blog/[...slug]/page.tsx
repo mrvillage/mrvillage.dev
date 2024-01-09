@@ -20,7 +20,7 @@ interface PostPageProps {
   };
 }
 
-async function getPostFromParams(params: PostPageProps["params"]) {
+function getPostFromParams(params: PostPageProps["params"]) {
   const slug = params?.slug?.join("?");
   const post = allPosts.find((post) => post.slugAsParams === slug);
 
@@ -34,7 +34,7 @@ async function getPostFromParams(params: PostPageProps["params"]) {
 export async function generateMetadata({
   params,
 }: PostPageProps): Promise<Metadata> {
-  const post = await getPostFromParams(params);
+  const post = getPostFromParams(params);
 
   if (!post) {
     return {};
@@ -74,9 +74,8 @@ export async function generateMetadata({
   };
 }
 
-export const runtime = "edge";
-export default async function PostPage({ params }: PostPageProps) {
-  const post = await getPostFromParams(params);
+export default function PostPage({ params }: PostPageProps) {
+  const post = getPostFromParams(params);
 
   if (!post) {
     notFound();
@@ -179,4 +178,10 @@ export default async function PostPage({ params }: PostPageProps) {
       </div>
     </article>
   );
+}
+
+export async function generateStaticParams() {
+  return allPosts.map((post) => ({
+    slug: [post.slugAsParams],
+  }));
 }

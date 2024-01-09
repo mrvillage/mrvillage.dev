@@ -1,8 +1,7 @@
 import { allPosts } from "@/.contentlayer/generated";
 import { BlogListPage } from "@/components/blog-list-page";
 
-export const runtime = "edge";
-export default async function PersonalBlogPage() {
+export default function PersonalBlogPage() {
   const posts = allPosts.filter(
     (post) => post.published && post.tags.includes("Personal")
   );
