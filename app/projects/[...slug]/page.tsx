@@ -73,7 +73,7 @@ export async function generateMetadata({
   };
 }
 
-const runtime = "edge";
+export const runtime = "edge";
 export default function ProjectPage({ params }: PostPageProps) {
   const project = getProjectFromParams(params);
 
