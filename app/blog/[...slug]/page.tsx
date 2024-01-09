@@ -74,6 +74,7 @@ export async function generateMetadata({
   };
 }
 
+export const runtime = "edge";
 export default function PostPage({ params }: PostPageProps) {
   const post = getPostFromParams(params);
 
