@@ -31,7 +31,7 @@ export default function Me() {
         href="/"
         className={cn(
           buttonVariants({ variant: "ghost" }),
-          "absolute left-[-150px] top-14 hidden xl:inline-flex"
+          "absolute left-[-150px] top-14 hidden xl:inline-flex",
         )}
       >
         <Icons.Back className="mr-2 h-4 w-4" /> Home
@@ -142,7 +142,7 @@ export default function Me() {
               href="/projects"
               className={cn(
                 buttonVariants({ variant: "secondary", size: "lg" }),
-                "px-4 bg-orange-600/80 hover:bg-neutral-900/80"
+                "px-4 bg-orange-600/80 hover:bg-neutral-900/80",
               )}
             >
               <Icons.Projects className="mr-2 h-4 w-4" />
@@ -152,7 +152,7 @@ export default function Me() {
               href="/blog/engineering"
               className={cn(
                 buttonVariants({ variant: "secondary", size: "lg" }),
-                "px-4 bg-blue-600/80 hover:bg-neutral-900/80"
+                "px-4 bg-blue-600/80 hover:bg-neutral-900/80",
               )}
             >
               <Icons.Blog className="mr-2 h-4 w-4" />
@@ -162,7 +162,7 @@ export default function Me() {
               href={GITHUB_LINK}
               className={cn(
                 buttonVariants({ variant: "secondary", size: "lg" }),
-                "px-4 bg-neutral-800/80 hover:bg-neutral-900/80"
+                "px-4 bg-neutral-800/80 hover:bg-neutral-900/80",
               )}
             >
               <Icons.GitHub className="mr-2 h-4 w-4" />
@@ -178,9 +178,9 @@ export default function Me() {
               But life isn&apos;t just about karate and coding. I am an
               insatiable reader and am always on the hunt for my next great
               read. My favorite series is Wheel of Time, but I also love the
-              Thrawn, Dune, Great Library, and Shadow and Bone series. Books
-              have a way of transporting you to another world, and I absolutely
-              love that feeling!
+              Thrawn, Dune, and Great Library series. Books have a way of
+              transporting you to another world, and I absolutely love that
+              feeling!
             </p>
             <p className="text-center text-white items-center justify-center h-min">
               I also enjoy building LEGO sets, especially Star Wars ones.
