@@ -6,19 +6,19 @@ import { tailwindConfig } from "@/lib/utils";
 export const runtime = "edge";
 
 const interRegular = fetch(
-  new URL("../../../assets/fonts/Inter-Regular.ttf", import.meta.url)
+  new URL("../../../assets/fonts/Inter-Regular.ttf", import.meta.url),
 ).then((res) => res.arrayBuffer());
 
 const interBold = fetch(
-  new URL("../../../assets/fonts/CalSans-SemiBold.ttf", import.meta.url)
+  new URL("../../../assets/fonts/CalSans-SemiBold.ttf", import.meta.url),
 ).then((res) => res.arrayBuffer());
 
 const iconRaw = fetch(
-  new URL("../../../public/icon-circle.png", import.meta.url)
+  new URL("../../../public/icon-circle.png", import.meta.url),
 )
   .then((res) => res.arrayBuffer())
   .then(
-    (res) => `data:image/png;base64,${Buffer.from(res).toString("base64")}`
+    (res) => `data:image/png;base64,${Buffer.from(res).toString("base64")}`,
   );
 
 export async function GET(req: Request) {
@@ -47,7 +47,7 @@ export async function GET(req: Request) {
         >
           <div tw="flex flex-row justify-between items-center w-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={icon} tw="h-32 w-32" />
+            <img src={icon} tw="h-32 w-32" alt="Icon" />
             <span tw="text-2xl font-bold tracking-light items-center">
               {values.type}
             </span>
@@ -112,7 +112,7 @@ export async function GET(req: Request) {
             style: "normal",
           },
         ],
-      }
+      },
     );
   } catch (error) {
     return new Response("Failed to generate image", { status: 500 });
