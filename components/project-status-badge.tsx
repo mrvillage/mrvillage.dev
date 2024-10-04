@@ -17,8 +17,8 @@ export function ProjectStatusBadge({ status }: ProjectStatusBadgeProps) {
           "bg-red-500 hover:bg-red-500": status === "Abandoned",
           "bg-blue-500 hover:bg-blue-500": status === "Planned",
           "bg-orange-500 hover:bg-orange-500": status === "Backburner",
-          "bg-gray-500 hover:bg-gray-500": status === "Participating",
-          "bg-gray-500 hover:bg-gray-500": status === "Previous",
+          "bg-gray-500 hover:bg-gray-500":
+            status === "Participating" || status === "Previous",
         },
       )}
     >
