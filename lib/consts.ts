@@ -65,15 +65,17 @@ export type Status =
   | "Abandoned"
   | "Planned"
   | "Backburner"
-  | "Participating";
+  | "Participating"
+  | "Previous";
 
 export const STATUS_PRECENDENCE = {
   Abandoned: 0,
-  Backburner: 1,
-  Planned: 2,
-  Participating: 3,
-  Completed: 4,
-  "In Progress": 5,
+  Previous: 1,
+  Backburner: 2,
+  Planned: 3,
+  Participating: 4,
+  Completed: 5,
+  "In Progress": 6,
 };
 
 interface TechnologyData {
@@ -85,7 +87,7 @@ interface TechnologyData {
 }
 
 function typedTechnologies<T extends Record<string, TechnologyData>>(
-  technologies: T
+  technologies: T,
 ): Record<keyof T, TechnologyData> {
   return technologies;
 }
@@ -209,6 +211,13 @@ export const TECHNOLOGIES = typedTechnologies({
     Icon: Icons.GraphQL,
     website: "https://graphql.org",
     label: "Uses GraphQL",
+  },
+  r: {
+    name: "R",
+    color: "bg-blue-500 hover:bg-blue-600",
+    Icon: Icons.R,
+    website: "https://r-project.org",
+    label: "Uses the R programming language",
   },
 });
 

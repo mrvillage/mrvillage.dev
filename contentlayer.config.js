@@ -109,6 +109,7 @@ const Project = defineDocumentType(() => ({
         "Abandoned",
         "Backburner",
         "Participating",
+        "Previous",
       ],
       required: true,
     },

@@ -26,4 +26,5 @@ export {
   IconBrandMysql as MySQL,
   IconBrandDebian as Debian,
   IconBrandGraphql as GraphQL,
+  IconLetterR as R,
 } from "@tabler/icons-react";
