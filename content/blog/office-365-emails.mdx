@@ -1,6 +1,6 @@
 ---
-title: Sending "free" emails through Microsoft 365
-description: This was a HUGE pain to figure out, and I, uh, didn't originally write it down, so...
+title: Sending free emails through Microsoft (Office?) 365
+description: This was a HUGE pain to figure out, and I, uh, didn't originally write it down, so
 date: 2024-12-15
 authors:
     - mrvillage
@@ -43,15 +43,15 @@ Aaaaaaaaaaand we're done! Time to write the code!
 The code for this is very simple, we have a two step process; get our access token, then send the email.
 
 ## Access token
-Make a URL-encoded (form) POST request to `https://login.microsoftonline.com/YOUR_TENANT_ID_HERE/oauth2/v2.0/token` with the following fields in the body:
-- `grant_type=client_credentials`
-- `scope=https://graph.microsoft.com/.default`
-- `client_id=YOUR_CLIENT_ID_HERE`
-- `client_secret=YOUR_CLIENT_SECRET_HERE`
-Our access token will be in the JSON body of the response with the key `access_token`. Our response also contains an `expires_in` field that tells gives us the time in seconds until the token expires (i.e. 30 means it expires in 30 seconds).
+Make a URL-encoded (form) POST request to <code>https://login.microsoftonline.com/YOUR_TENANT_ID_HERE/oauth2/v2.0/token</code> with the following fields in the body:
+- <code>grant_type=client_credentials</code>
+- <code>scope=https://graph.microsoft.com/.default</code>
+- <code>client_id=YOUR_CLIENT_ID_HERE</code>
+- <code>client_secret=YOUR_CLIENT_SECRET_HERE</code>
+Our access token will be in the JSON body of the response with the key <code>access_token</code>. Our response also contains an <code>expires_in</code> field that tells gives us the time in seconds until the token expires (i.e. 30 means it expires in 30 seconds).
 
 ## Send the email
-Sending the email is also very straightforward, we make a JSON encoded POST request to `https://graph.microsoft.com/v1.0/users/YOUR_SHARED_MAILBOX_ID_HERE/sendMail` with fields in the body as described [here](https://learn.microsoft.com/en-us/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http). I'd write em all out, but that's kinda unnecessary when Microsoft did it for me!
+Sending the email is also very straightforward, we make a JSON encoded POST request to <code>https://graph.microsoft.com/v1.0/users/YOUR_SHARED_MAILBOX_ID_HERE/sendMail</code> with fields in the body as described [here](https://learn.microsoft.com/en-us/graph/api/user-sendmail?view=graph-rest-1.0&tabs=http). I'd write em all out, but that's kinda unnecessary when Microsoft did it for me!
 
 # Conclusion
 Overall, despite all the pain, this was worth it! I'm saving $40 a month on the handful of emails I do send. However, be aware that Office is *not* designed for use like this, so there *are* some rate limits you will run into when you try to scale up. Luckily, I'm not there yet!
