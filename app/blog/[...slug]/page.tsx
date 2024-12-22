@@ -83,7 +83,7 @@ export default function PostPage({ params }: PostPageProps) {
   }
 
   const authors = post.authors.map((author) =>
-    allAuthors.find(({ slug }) => slug === `/authors/${author}`)
+    allAuthors.find(({ slug }) => slug === `/authors/${author}`),
   );
 
   return (
@@ -92,7 +92,7 @@ export default function PostPage({ params }: PostPageProps) {
         href="/blog"
         className={cn(
           buttonVariants({ variant: "ghost" }),
-          "absolute left-[-200px] top-14 hidden xl:inline-flex"
+          "absolute left-[-200px] top-14 hidden xl:inline-flex",
         )}
       >
         <Icons.Back className="mr-2 h-4 w-4" /> More posts
