@@ -5,6 +5,7 @@ const Background = dynamic(() => import("@/components/background"), {
   ssr: false,
 });
 
+export const runtime = "edge";
 export default function NotFound() {
   return (
     <>
