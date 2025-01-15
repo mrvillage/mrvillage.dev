@@ -123,10 +123,17 @@ export default function Me() {
             <p className="text-center text-white items-center justify-center h-min">
               When I&apos;m not practicing or teaching karate, you&apos;ll
               likely find me in front of a computer. I&apos;m currently in my
-              second year of Computer Science at McMaster University. I&apos;m
-              having a blast solving complex problems and building new things. I
-              also work as a software developer on Politics and War, where I get
-              to blend my love for coding and games!
+              third year of Computer Science at McMaster University. I&apos;m
+              having a blast solving complex problems and building new things.
+              I'm also working on building my own company where I get to combine
+              my passion for coding and karate with{" "}
+              <Link
+                href="https://www.kanrimemberships.com"
+                className="text-neutral-400 hover:underline"
+              >
+                Kanri Memberships
+              </Link>
+              !
             </p>
             <p className="text-center text-white items-center justify-center h-min">
               I have a soft spot for open-source software and love contributing
@@ -177,10 +184,10 @@ export default function Me() {
             <p className="text-center text-white items-center justify-center h-min">
               But life isn&apos;t just about karate and coding. I am an
               insatiable reader and am always on the hunt for my next great
-              read. My favorite series is Wheel of Time, but I also love the
-              Thrawn, Dune, and Great Library series. Books have a way of
-              transporting you to another world, and I absolutely love that
-              feeling!
+              read. My favorite series are Wheel of Time and the Stormlight
+              Archive, but I also love the Thrawn, Dune, and Great Library
+              series. Books have a way of transporting you to another world, and
+              I absolutely love that feeling!
             </p>
             <p className="text-center text-white items-center justify-center h-min">
               I also enjoy building LEGO sets, especially Star Wars ones.
