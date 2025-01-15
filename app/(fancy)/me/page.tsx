@@ -125,7 +125,7 @@ export default function Me() {
               likely find me in front of a computer. I&apos;m currently in my
               third year of Computer Science at McMaster University. I&apos;m
               having a blast solving complex problems and building new things.
-              I'm also working on building my own company where I get to combine
+              I&apos;m also working on building my own company where I get to combine
               my passion for coding and karate with{" "}
               <Link
                 href="https://www.kanrimemberships.com"
