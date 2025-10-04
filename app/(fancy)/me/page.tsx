@@ -123,7 +123,7 @@ export default function Me() {
             <p className="text-center text-white items-center justify-center h-min">
               When I&apos;m not practicing or teaching karate, you&apos;ll
               likely find me in front of a computer. I&apos;m currently in my
-              third year of Computer Science at McMaster University. I&apos;m
+              fourth year of Computer Science at McMaster University. I&apos;m
               having a blast solving complex problems and building new things.
               I&apos;m also working on building my own company where I get to
               combine my passion for coding and karate with{" "}
@@ -131,7 +131,7 @@ export default function Me() {
                 href="https://www.kanrimemberships.com"
                 className="text-neutral-400 hover:underline"
               >
-                Kanri Memberships
+                Kanri
               </Link>
               !
             </p>
