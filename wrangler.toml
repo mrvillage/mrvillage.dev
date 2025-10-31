@@ -1,23 +1,2 @@
 compatibility_flags = ["nodejs_compat"]
 compatibility_date = "2023-10-25"
-
-[env.production]
-d1_databases = [
-    { binding = "DB", database_name = "mrvillage", database_id = "9f05c8f3-2287-444e-aeb1-aad6c8629e5e" },
-]
-r2_buckets = [{ binding = "R2", bucket_name = "mrvillage" }]
-
-[env.preview]
-d1_databases = [
-    { binding = "DB", database_name = "mrvillage-preview", database_id = "0d0b4aa8-880c-4972-8d46-fa896632c1ec" },
-]
-r2_buckets = [{ binding = "R2", bucket_name = "mrvillage" }]
-
-[[d1_databases]]
-binding = "DB"
-database_name = "mrvillage-preview"
-database_id = "0d0b4aa8-880c-4972-8d46-fa896632c1ec"
-
-[[r2_buckets]]
-binding = "R2"
-bucket_name = "mrvillage-preview"
