@@ -4,7 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { ISourceOptions } from "@tsparticles/engine";
-import { tailwindConfig } from "@/lib/utils";
+import { taupe } from "@/lib/colors";
 
 export default function Background() {
   const [init, setInit] = useState(false);
@@ -33,10 +33,10 @@ export default function Background() {
         },
         particles: {
           color: {
-            value: tailwindConfig.theme.colors.neutral[100],
+            value: taupe[200],
           },
           links: {
-            color: tailwindConfig.theme.colors.neutral[100],
+            color: taupe[300],
             distance: 150,
             enable: true,
             opacity: 0.3,

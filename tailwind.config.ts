@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import colors from "tailwindcss/colors";
+import { taupe } from "./lib/colors";
 
 const config: Config = {
   darkMode: ["class"],
@@ -25,6 +26,9 @@ const config: Config = {
         background: colors.neutral[900],
         // background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        // Warm grey-brown accent palette used across buttons, links, and the
+        // particle background to give the site a consistent, warmer feel.
+        taupe,
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
@@ -42,7 +46,7 @@ const config: Config = {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: colors.neutral[800],
+          DEFAULT: taupe[800],
           // DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },

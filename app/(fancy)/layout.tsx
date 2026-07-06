@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { SiteNav } from "@/components/site-nav";
 
 const Background = dynamic(() => import("@/components/background"), {
   ssr: false,
@@ -12,8 +13,9 @@ export default function FancyLayout({
   return (
     <>
       <Background />
-      <div className="absolute top-0 left-0 right-0 bottom-0 inset-0">
-        {children}
+      <div className="relative flex min-h-screen flex-col">
+        <SiteNav />
+        <div className="flex-1">{children}</div>
       </div>
     </>
   );
